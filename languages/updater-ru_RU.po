@@ -1,0 +1,287 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Updater\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-18 19:12+0300\n"
+"PO-Revision-Date: 2013-01-18 19:12+0300\n"
+"Last-Translator: \n"
+"Language-Team: bestwebsoft.com <plugin@bestwebsoft.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru_RU\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: updater.php:77
+msgid "Activated plugins"
+msgstr "Активированные плагины"
+
+#: updater.php:79
+#: updater.php:87
+#: updater.php:95
+msgid "Read more"
+msgstr "Подробнее"
+
+#: updater.php:79
+#: updater.php:155
+#: updater.php:167
+msgid "Settings"
+msgstr "Настройки"
+
+#: updater.php:85
+msgid "Installed plugins"
+msgstr "Установленные плагины"
+
+#: updater.php:93
+msgid "Recommended plugins"
+msgstr "Рекомендованные к установке плагины"
+
+#: updater.php:95
+msgid "Download"
+msgstr "Скачать"
+
+#: updater.php:95
+#, php-format
+msgid "Install %s"
+msgstr "Установлено %s"
+
+#: updater.php:95
+msgid "Install now from wordpress.org"
+msgstr "Установить с wordpress.org"
+
+#: updater.php:97
+msgid "If you have any questions, please contact us via plugin@bestwebsoft.com or fill in our contact form on our site"
+msgstr "Если у вас есть какие-то вoпросы, обращайтесь на plugin@bestwebsoft.com или заполните контактную форму на нашем сайте"
+
+#: updater.php:108
+#: updater.php:229
+msgid "Updater options"
+msgstr "Updater настройки"
+
+#: updater.php:109
+#: updater.php:325
+#: updater.php:359
+msgid "Updater"
+msgstr "Updater"
+
+#: updater.php:168
+msgid "FAQ"
+msgstr "FAQ"
+
+#: updater.php:169
+msgid "Support"
+msgstr "Поддержка"
+
+#: updater.php:200
+msgid "Please input correct receiver's email. Settings are not saved."
+msgstr "Пожалуйста, введите правильный адрес получателя. Настройки не сохранены."
+
+#: updater.php:210
+msgid "Please input correct sender's email. Settings are not saved."
+msgstr "Пожалуйста, введите правильный адрес отправителя. Настройки не сохранены."
+
+#: updater.php:216
+msgid "All settings were saved."
+msgstr "Все настройки сохранены."
+
+#: updater.php:230
+#: updater.php:360
+msgid "We strongly recommend you to backup the entire site and your WordPress database before updating! We are not responsible for the correctness of the site after updates."
+msgstr "Мы настоятельно рекомендуем Вам сделать бэкап вашего сайта и базы данных WordPress перед обновлениями! Мы не несем ответственности за корректность работы сайта после каких-либо обновлений."
+
+#: updater.php:233
+#: updater.php:336
+msgid "Go to Updater page"
+msgstr "Перейти на страницу \"Updater\""
+
+#: updater.php:233
+msgid " to update your plugins or WP core in manual mode."
+msgstr " для того, чтобы обновить ваши плагины или ядро WP в ручном режиме."
+
+#: updater.php:239
+msgid "Choose type of mode for the plugin"
+msgstr "Выбор типа режима для плагина"
+
+#: updater.php:242
+msgid "Manual mode"
+msgstr "Ручной режим"
+
+#: updater.php:243
+msgid "Auto mode"
+msgstr "Автоматический режим"
+
+#: updater.php:247
+msgid "Send an email when an update performed"
+msgstr "Отправить письмо при выполнении обновлении."
+
+#: updater.php:249
+msgid "Send email"
+msgstr "Отправить письмо "
+
+#: updater.php:253
+msgid "Receiver's email address"
+msgstr "Еmail получателя"
+
+#: updater.php:253
+#: updater.php:260
+msgid "(For example: admin@example.com )"
+msgstr "(Например: admin@example.com )"
+
+#: updater.php:256
+msgid "By default, Updater will send an email to the Admin email. If you would like to send that email to a different address, you can set it here."
+msgstr "По умолчанию Updater будет отправлять письмо на электронную почту администратора сайта. Если вы хотите, чтобы письмо отправлялось на другой адрес, вы можете изменить его здесь."
+
+#: updater.php:260
+msgid "Sender's name and email address"
+msgstr "Имя и адрес отправителя"
+
+#: updater.php:263
+msgid "By default, Updater will send an email from the name of your website. You can override it here."
+msgstr "По умолчанию Updater будет отправилять письмо от имени Вашего сайта. Вы можете изменить это здесь."
+
+#: updater.php:265
+msgid "By default, Updater will send an email from the Admin email. If you would like to send that email to a different address, you can set it here."
+msgstr "По умолчанию Updater будет отправлять письмо на электронную почту администратора сайта. Если вы хотите, чтобы письмо отправлялось на другой адрес, вы можете изменить его здесь."
+
+#: updater.php:272
+msgid "Save Changes"
+msgstr "Сохранить изменения"
+
+#: updater.php:336
+msgid "Return to Updater page"
+msgstr "Вернуться на страницу \"Updater\""
+
+#: updater.php:347
+msgid "Sorry, your e-mail could not be delivered to "
+msgstr "Извините, ваш e-mail не может быть отправлен на "
+
+#: updater.php:349
+msgid "The e-mail with results of updating was delivered to "
+msgstr "Е-mail с результатами обновления был отправлен на "
+
+#: updater.php:374
+msgid "Version of WordPress"
+msgstr "Версия WordPress"
+
+#: updater.php:379
+#: updater.php:406
+msgid "Update to "
+msgstr "Обновить до "
+
+#: updater.php:383
+#: updater.php:412
+msgid "Version "
+msgstr "Версия "
+
+#: updater.php:394
+msgid "No plugins found."
+msgstr "Плагины не найдены."
+
+#: updater.php:427
+msgid "Update"
+msgstr "Обновить"
+
+#: updater.php:445
+msgid "Updating plugins..."
+msgstr "Обновление плагинов..."
+
+#: updater.php:461
+msgid "Update WordPress..."
+msgstr "Обновление WordPress..."
+
+#: updater.php:496
+msgid "Updating Failed"
+msgstr "Обновление провалилось"
+
+#: updater.php:499
+msgid "WordPress updated successfully!"
+msgstr "WordPress удачно обновлен!"
+
+#: updater.php:512
+msgid "Updating on "
+msgstr "Обновить до"
+
+#: updater.php:516
+msgid "Hello!"
+msgstr "Здравствуйте!"
+
+#: updater.php:517
+msgid "The Plugin Updater had been run on your web-site"
+msgstr "Updater был запущен на вашем сайте"
+
+#: updater.php:520
+msgid "This plugins were updated:"
+msgstr "Следующие плагины обновлены: "
+
+#: updater.php:524
+msgid "to version"
+msgstr "до версии"
+
+#: updater.php:530
+msgid "WordPress Core was updated to version"
+msgstr "WordPress был обновлен  до версии"
+
+#: updater.php:532
+msgid "Thanks for using the Updater!"
+msgstr "Спасибо за использование плагина Updater!"
+
+#~ msgid "Installation Failed"
+#~ msgstr "Во время установки произошли ошибки "
+#~ msgid "Options for Plugins and Core updater"
+#~ msgstr "Настройки для Plugins and Core updater"
+#~ msgid "Plugins and Core updater"
+#~ msgstr "Plugins and Core updater"
+#~ msgid "Options for Plugins and Core updater "
+#~ msgstr "Настройки для Plugins and Core updater"
+#~ msgid "Plugins and Core Updater"
+#~ msgstr "Plugins and Core Updater"
+#~ msgid "Plugins&Core updater options"
+#~ msgstr "Настройки для Plugins&Core updater"
+#~ msgid "Plugins updater Options"
+#~ msgstr "Настройки для Plugins Updater"
+#~ msgid "Check all"
+#~ msgstr "Отметить все"
+#~ msgid "Not installed."
+#~ msgstr "Не установлен."
+#~ msgid "Something updated"
+#~ msgstr "Произошли обновления"
+#~ msgid "Plagins was updated in your site:"
+#~ msgstr "На Вашем сайте были обновлены следующие плагины:"
+#~ msgid "You must fill all forms to add the web-site."
+#~ msgstr "Вы должны заполнить все формы для добавления сайта."
+#~ msgid "Add settings for web-site, which plugins you want to update "
+#~ msgstr ""
+#~ "Добавить параметры для веб-сайта, плагины которого вы хотите обновлять"
+#~ msgid "Title"
+#~ msgstr "Название сайта"
+#~ msgid "Host"
+#~ msgstr "Хост"
+#~ msgid "(For example: http://example.com )"
+#~ msgstr "(Например: http://example.com )"
+#~ msgid "Username"
+#~ msgstr "Пользователь"
+#~ msgid "Password"
+#~ msgstr "Пароль"
+#~ msgid "The path to the folder with plugins"
+#~ msgstr "Путь к папке с плагинами"
+#~ msgid "(For example: /wp-content/plugins/)"
+#~ msgstr "(Например: /wp-content/plugins/)"
+#~ msgid "Remove this site"
+#~ msgstr "Удалить этот сайт"
+#~ msgid "Add site"
+#~ msgstr "Добавить сайт"
+#~ msgid "You must fill all forms to add the site."
+#~ msgstr "Вы должны заполнить все формы для добавления сайта."
+#~ msgid "Please, check settings for the site."
+#~ msgstr "Пожалуйста, проверьте настройки для сайта."
+#~ msgid "Need to be update!"
+#~ msgstr "Необходимо обновление!"
+#~ msgid "Web-site: "
+#~ msgstr "Веб-сайт:"
+#~ msgid "It looks like something went wrong during the update."
+#~ msgstr "Похоже, что-то пошло не так во время обновления."
+
