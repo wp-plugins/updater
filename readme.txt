@@ -1,11 +1,12 @@
 === Updater ===
 Contributors: bestwebsoft
-Donate link: 
-Tags: plugin, core, wordpress, update
+Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10&product_id=13
+Tags: plugin, core, wordpress, update, updater, updater core, update plugin, apdate, apduter
 Requires at least: 3.0
 Tested up to: 3.5
 Stable tag: 1.01
 License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin allows you to update plugins and WP core.
 
