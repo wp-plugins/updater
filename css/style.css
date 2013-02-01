@@ -3,7 +3,7 @@ Plugin Name: Updater
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: This plugin allows you to update plugins and WP core in auto or manual mode.
 Author: BestWebSoft
-Version: 1.01
+Version: 1.02
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -25,22 +25,51 @@ License: GPLv2 or later
 #toplevel_page_bws_plugins .wp-submenu .wp-first-item {
 	display:none;
 }
+.pdtr {
+	width: auto !important;
+}
+.pdtr * {
+	width: auto !important;
+}
 .pdtr td,
 .pdtr td {
 	border-bottom-color: #DFDFDF;
     border-top-color: #FFFFFF;
 }
+.pdtr .plugin-title {
+    border-right: 1px solid #DFDFDF !important;
+    padding-right: 15px !important;
+    padding-top: 7px !important;
+}
 .pdtr thead tr th {
 	padding: 8px 8px 7px 0 !important;
 }
 .pdtr .check-column {
-	padding-left: 8px !important;
+	padding: 7px 8px 7px 8px !important;
 }
-.pdtr input {
-    background-color: #FFFFFF;
+.pdtr_right {
+	float: right;
+}
+.pdtr_right input {
+    position: relative;
+    top: -1px;
+}
+.pdtr_left {
+	float: left;
+	padding-right: 15px;
+}
+.pdtr_settings input {    
+    margin: 0 !important;
+	position: relative;
+    top: 1px;
+}
+.pdtr_settings input[type="text"],
+.pdtr_settings input[type="url"],
+.pdtr_settings input[type="email"] {
+	background-color: #FFFFFF;
     border-color: #DFDFDF;
     border-radius: 4px 4px 4px 4px;
     border-style: solid;
     border-width: 1px;
-    margin: 0 !important;
+	width: 300px;
 }

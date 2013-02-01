@@ -1,12 +1,11 @@
 === Updater ===
 Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10&product_id=13
-Tags: plugin, core, wordpress, update, updater, updater core, update plugin, apdate, apduter 
+Tags: plugin, core, wordpress, update
 Requires at least: 3.0
-Tested up to: 3.5
-Stable tag: 1.01
+Tested up to: 3.5.1
+Stable tag: 1.02
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin allows you to update plugins and WP core.
 
@@ -51,11 +50,20 @@ In auto mode, the plugin checks for updates 2 times a day, and if they are avail
 
 == Changelog ==
 
+= V1.02 - 28.01.2013 =
+* NEW : Add sending email when new versions of plugins or WordPress are available.
+* Bugfix : Bugs in admin menu were fixed.
+* Update : Css-style was updated.
+* Update : We updated all functionality for wordpress 3.5.1.
+
 = V1.01 - 17.01.2013 =
-Bugfix : The code refactoring was performed.
-NEW : Css-style was added.
+* Bugfix : The code refactoring was performed.
+* NEW : Css-style was added.
 
 == Upgrade Notice ==
+
+= V1.02 = 
+Add sending email when new versions of plugins or WordPress are available. Bugs in admin menu were fixed. Css-style was updated. We updated all functionality for wordpress 3.5.1.
 
 = V1.01 =
 The code refactoring was performed. Css-style was added.
