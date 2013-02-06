@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Updater\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-01 17:09+0300\n"
-"PO-Revision-Date: 2013-02-01 17:10+0300\n"
+"POT-Creation-Date: 2013-02-06 16:34+0300\n"
+"PO-Revision-Date: 2013-02-06 16:34+0300\n"
 "Last-Translator: \n"
 "Language-Team: bestwebsoft.com <plugin@bestwebsoft.com>\n"
 "MIME-Version: 1.0\n"
@@ -59,13 +59,13 @@ msgid "If you have any questions, please contact us via plugin@bestwebsoft.com o
 msgstr "Если у вас есть какие-то вoпросы, обращайтесь на plugin@bestwebsoft.com или заполните контактную форму на нашем сайте"
 
 #: updater.php:109
-#: updater.php:261
+#: updater.php:271
 msgid "Updater options"
 msgstr "Updater настройки"
 
 #: updater.php:110
-#: updater.php:376
-#: updater.php:410
+#: updater.php:386
+#: updater.php:420
 msgid "Updater"
 msgstr "Updater"
 
@@ -93,213 +93,217 @@ msgstr "Пожалуйста, введите правильный адрес о�
 msgid "All settings were saved."
 msgstr "Все настройки сохранены."
 
-#: updater.php:262
-#: updater.php:411
+#: updater.php:272
+#: updater.php:421
 msgid "We strongly recommend you to backup the entire site and your WordPress database before updating! We are not responsible for the correctness of the site after updates."
 msgstr "Мы настоятельно рекомендуем Вам сделать бэкап вашего сайта и базы данных WordPress перед обновлениями! Мы не несем ответственности за корректность работы сайта после каких-либо обновлений."
 
-#: updater.php:265
-#: updater.php:387
+#: updater.php:275
+#: updater.php:397
 msgid "Go to Updater page"
 msgstr "Перейти на страницу \"Updater\""
 
-#: updater.php:265
+#: updater.php:275
 msgid " to update your plugins or WP core in manual mode."
 msgstr " для того, чтобы обновить ваши плагины или ядро WP в ручном режиме."
 
-#: updater.php:271
+#: updater.php:281
 msgid "Choose type of mode for the plugin"
 msgstr "Выбор типа режима для плагина"
 
-#: updater.php:274
+#: updater.php:284
 msgid "Manual mode"
 msgstr "Ручной режим"
 
-#: updater.php:275
+#: updater.php:285
 msgid "Auto mode"
 msgstr "Автоматический режим"
 
-#: updater.php:279
+#: updater.php:289
 msgid "Send email when new versions are available"
 msgstr "Отправить письмо когда доступны новые версии"
 
-#: updater.php:281
+#: updater.php:291
 msgid "Send email when new versions of plugins or WordPress are available."
 msgstr "Отправить письмо когда доступны новые версии плагинов или WordPress."
 
-#: updater.php:285
+#: updater.php:295
 msgid "Send email after updating"
 msgstr "Отправить письмо после выполнения обновлении"
 
-#: updater.php:287
+#: updater.php:297
 msgid "Send email after updating plugins or WordPress."
 msgstr "Отправить письмо после выполнения обновлении плагинов или WordPress."
 
-#: updater.php:291
+#: updater.php:301
 msgid "How often should the plugin search for or/and update plugins and WordPress?"
 msgstr "Как часто плагину следует искать и/или обновлять плагины и WordPress?"
 
-#: updater.php:295
+#: updater.php:305
 msgid "By default, Updater performs this every 12 hours."
 msgstr "По умолчанию Updater делает это каждые 12 часов."
 
-#: updater.php:296
+#: updater.php:306
 msgid "(Choose the number of hours. It must be an integer.)"
 msgstr "(Выберите количество часов. Оно должно быть целое.)"
 
-#: updater.php:300
+#: updater.php:310
 msgid "Receiver's email address"
 msgstr "Еmail получателя"
 
-#: updater.php:304
+#: updater.php:314
 msgid "By default, Updater will send an email to the Admin email. If you would like to send that email to a different address, you can set it here."
 msgstr "По умолчанию Updater будет отправлять письмо на электронную почту администратора сайта. Если вы хотите, чтобы письмо отправлялось на другой адрес, вы можете изменить его здесь."
 
-#: updater.php:305
-#: updater.php:316
+#: updater.php:315
+#: updater.php:326
 msgid "(For example: admin@example.com.)"
 msgstr "(Например: admin@example.com )"
 
-#: updater.php:309
+#: updater.php:319
 msgid "Sender's name and email address"
 msgstr "Имя и адрес отправителя"
 
-#: updater.php:312
+#: updater.php:322
 msgid "By default, Updater will send an email from the name of your website. You can override it here."
 msgstr "По умолчанию Updater будет отправилять письмо от имени Вашего сайта. Вы можете изменить это здесь."
 
-#: updater.php:315
+#: updater.php:325
 msgid "By default, Updater will send an email from the Admin email. If you would like to send that email to a different address, you can set it here."
 msgstr "По умолчанию Updater будет отправлять письмо на электронную почту администратора сайта. Если вы хотите, чтобы письмо отправлялось на другой адрес, вы можете изменить его здесь."
 
-#: updater.php:323
+#: updater.php:333
 msgid "Save Changes"
 msgstr "Сохранить изменения"
 
-#: updater.php:387
+#: updater.php:397
 msgid "Return to Updater page"
 msgstr "Вернуться на страницу \"Updater\""
 
-#: updater.php:398
+#: updater.php:408
 msgid "Sorry, your e-mail could not be delivered to "
 msgstr "Извините, ваш e-mail не может быть отправлен на "
 
-#: updater.php:400
+#: updater.php:410
 msgid "The e-mail with results of updating was delivered to "
 msgstr "Е-mail с результатами обновления был отправлен на "
 
-#: updater.php:416
+#: updater.php:426
 msgid "WP Core / Plugins"
 msgstr "WordPress / Плагины"
 
-#: updater.php:425
+#: updater.php:435
 msgid "Version of WordPress"
 msgstr "Версия WordPress"
 
-#: updater.php:430
-#: updater.php:459
+#: updater.php:440
+#: updater.php:469
 msgid "Update to "
 msgstr "Обновить до "
 
-#: updater.php:435
-#: updater.php:466
+#: updater.php:445
+#: updater.php:476
 msgid "Version "
 msgstr "Версия "
 
-#: updater.php:447
+#: updater.php:457
 msgid "No plugins found."
 msgstr "Плагины не найдены."
 
-#: updater.php:482
+#: updater.php:492
 msgid "Update"
 msgstr "Обновить"
 
-#: updater.php:500
+#: updater.php:510
 msgid "Updating plugins..."
 msgstr "Обновление плагинов..."
 
-#: updater.php:516
+#: updater.php:526
 msgid "Update WordPress..."
 msgstr "Обновление WordPress..."
 
-#: updater.php:551
+#: updater.php:561
 msgid "Updating Failed"
 msgstr "Обновление провалилось"
 
-#: updater.php:554
+#: updater.php:564
 msgid "WordPress updated successfully!"
 msgstr "WordPress удачно обновлен!"
 
-#: updater.php:570
-#: updater.php:634
+#: updater.php:580
+#: updater.php:644
 msgid "Updating on "
 msgstr "Обновить до"
 
-#: updater.php:574
-#: updater.php:638
+#: updater.php:584
+#: updater.php:648
 msgid "Hello!"
 msgstr "Здравствуйте!"
 
-#: updater.php:575
-#: updater.php:639
+#: updater.php:585
+#: updater.php:649
 msgid "The Updater plugin had been run on your web-site"
 msgstr "Updater был запущен на вашем сайте."
 
-#: updater.php:578
+#: updater.php:588
 msgid "This plugins were updated:"
 msgstr "Следующие плагины обновлены: "
 
-#: updater.php:582
+#: updater.php:592
+#: updater.php:656
 msgid "to version"
 msgstr "до версии"
 
-#: updater.php:588
+#: updater.php:598
 msgid "WordPress Core was updated to version"
 msgstr "WordPress был обновлен  до версии"
 
-#: updater.php:590
-#: updater.php:661
+#: updater.php:600
+#: updater.php:671
 msgid "If you want to change type of mode for the plugin or other settings you should go here:"
 msgstr "Если вы хотите изменить тип режима для плагина или другие настройки, вам сюда:"
 
-#: updater.php:591
-#: updater.php:662
+#: updater.php:601
+#: updater.php:672
 msgid "Updater options page on your website."
 msgstr "страница настроек Updater на вашем сайте."
 
-#: updater.php:593
-#: updater.php:665
+#: updater.php:603
+#: updater.php:675
 msgid "Thanks for using the"
 msgstr "Спасибо за использование плагина"
 
-#: updater.php:639
+#: updater.php:649
 msgid "and found the files need to be updated:"
 msgstr "и обнаружил файлы, требующие обновления:"
 
-#: updater.php:642
+#: updater.php:652
 msgid "These plugins can be updated:"
 msgstr "Следующие плагины могут быть обновлены: "
 
-#: updater.php:646
-msgid " to version"
-msgstr " до версии"
+#: updater.php:656
+#: updater.php:662
+msgid "current version is"
+msgstr "текущая версии"
 
-#: updater.php:652
+#: updater.php:662
 msgid "WordPress Core can be updated to version"
 msgstr "WordPress может быть обновлен  до версии"
 
-#: updater.php:656
+#: updater.php:666
 msgid "For update you should use this link:"
 msgstr "Для обновления воспользуйтесь этой ссылкой:"
 
-#: updater.php:656
+#: updater.php:666
 msgid "Updater page on your website."
 msgstr "страница Updater на вашем сайте."
 
-#: updater.php:658
+#: updater.php:668
 msgid "The Updater plugin begins updating these files."
 msgstr "Плагин Updater начинает обновлние этих файлов."
 
+#~ msgid " to version"
+#~ msgstr " до версии"
 #~ msgid "send email when updating"
 #~ msgstr "Отправить письмо при выполнении обновлении."
 #~ msgid " has new version"

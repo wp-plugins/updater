@@ -4,7 +4,7 @@ Plugin Name: Updater
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: This plugin allows you to update plugins and WP core in auto or manual mode.
 Author: BestWebSoft
-Version: 1.02
+Version: 1.03
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -244,11 +244,21 @@ if ( ! function_exists ( 'pdtr_settings_page' ) ) {
 		    // Add or delete hook of auto/handle mode
 			if ( ( '0' != $pdtr_options["pdtr_mode"] ) || ( '0' != $pdtr_options["pdtr_send_mail_get_update"] ) ) {
 				if ( ! wp_next_scheduled( 'pdtr_auto_hook' ) ) {
-					$time = time()+$pdtr_options['pdtr_time']*60*60;
+
+					if ( '' != $pdtr_options['pdtr_time'] )
+				   		$time = time()+$pdtr_options['pdtr_time']*60*60;
+				    else 
+				    	$time = time()+12*60*60;
+					
 					wp_schedule_event( $time, 'schedules_hours', 'pdtr_auto_hook' );
 				} else {
 					wp_clear_scheduled_hook( 'pdtr_auto_hook' );
-					$time = time()+$pdtr_options['pdtr_time']*60*60;
+					
+					if ( '' != $pdtr_options['pdtr_time'] )
+				   		$time = time()+$pdtr_options['pdtr_time']*60*60;
+				    else 
+				    	$time = time()+12*60*60;
+
 					wp_schedule_event( $time, 'schedules_hours', 'pdtr_auto_hook' );
 				}
 			} else {
@@ -366,7 +376,7 @@ if ( ! function_exists ( 'pdtr_own_page' ) ) {
 	function pdtr_own_page() {
 		global $plugins, $pdtr_options, $wp_version;
 		$core = false;
-
+pdtr_auto_function();
 		// Get information about WP core and installed plugins from the website
 		$pdtr_core_plugin_list = pdtr_processing_site();		
 
@@ -641,15 +651,15 @@ if ( ! function_exists ( 'pdtr_notification_exist_update' ) ) {
 		if ( "" != $plugins_list ) {
 			$message .= '<strong> - ' . __( 'These plugins can be updated:', 'updater' ) . '</strong>' . '<ul>';
 			foreach ( $plugins_list as $key => $value ) {
-				$version = $pdtr_core_plugin_list["plg_need_update"][ $value ]["new_version"];
-				$value = explode( "/", $value );
-				$message .= '<li>' . $value[0] . ' - ' . __( ' to version', 'updater' ) . ' ' . $version . ';' . '</li>';
+				$new_version = $pdtr_core_plugin_list["plg_need_update"][ $value ]["new_version"];
+				$name = explode( "/", $value );
+				$message .= '<li>' . $name[0] . ' - ' . __( 'to version', 'updater' ) . ' ' . $new_version . ' ('. __( 'current version is', 'updater' ) . ' ' . $pdtr_core_plugin_list["plg_list"][ $value ]["Version"] . ');' . '</li>';
 			}
 			$message .= '</ul>';
 		}
 		
 		if ( true === $core ) {
-			$message .= '<strong> - ' . __( 'WordPress Core can be updated to version', 'updater' ) . ' ' . $pdtr_core_plugin_list["core"]["new"] . '.' . '</strong><br/>';
+			$message .= '<strong> - ' . __( 'WordPress Core can be updated to version', 'updater' ) . ' ' . $pdtr_core_plugin_list["core"]["new"] . ' ('. __( 'current version is', 'updater' ) . ' ' . $pdtr_core_plugin_list["core"]["current"]. ').' . '</strong><br/>';
 		}
 
 		if ( 0 == $pdtr_options["pdtr_mode"] ) {
@@ -745,7 +755,12 @@ if ( ! function_exists ( 'pdtr_auto_function' ) ) {
 		}
 
 		wp_clear_scheduled_hook( 'pdtr_auto_hook' );
-		$time = time()+$pdtr_options['pdtr_time']*60*60;
+
+		if ( '' != $pdtr_options['pdtr_time'] )
+	   		$time = time()+$pdtr_options['pdtr_time']*60*60;
+	    else 
+	    	$time = time()+12*60*60;
+
 		wp_schedule_event( $time, 'schedules_hours', 'pdtr_auto_hook' );
 	}
 }// end function pdtr_auto_function

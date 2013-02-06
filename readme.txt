@@ -4,7 +4,7 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10
 Tags: plugin, core, wordpress, update
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 1.02
+Stable tag: 1.03
 License: GPLv2 or later
 
 This plugin allows you to update plugins and WP core.
@@ -50,6 +50,10 @@ In auto mode, the plugin checks for updates 2 times a day, and if they are avail
 
 == Changelog ==
 
+= V1.03 - 06.02.2013 =
+* Bugfix : Bug in time to send mail was fixed.
+* Update : Email that send when new versions of plugins or WordPress are available was updated.
+
 = V1.02 - 28.01.2013 =
 * NEW : Add sending email when new versions of plugins or WordPress are available.
 * Bugfix : Bugs in admin menu were fixed.
@@ -61,6 +65,9 @@ In auto mode, the plugin checks for updates 2 times a day, and if they are avail
 * NEW : Css-style was added.
 
 == Upgrade Notice ==
+
+= V1.03 =
+Bug in time to send mail was fixed. Email that send when new versions of plugins or WordPress are available was updated.
 
 = V1.02 = 
 Add sending email when new versions of plugins or WordPress are available. Bugs in admin menu were fixed. Css-style was updated. We updated all functionality for wordpress 3.5.1.
