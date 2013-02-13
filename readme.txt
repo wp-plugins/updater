@@ -4,7 +4,7 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10
 Tags: plugin, core, wordpress, update
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 1.03
+Stable tag: 1.04
 License: GPLv2 or later
 
 This plugin allows you to update plugins and WP core.
@@ -39,9 +39,37 @@ Also, emails which are reporting about plugin's bugs are accepted for investigat
 
 == Frequently Asked Questions ==
 
-= How often will the plugin update my website? =
+= The plugin doesn't send any emails =
 
-In auto mode, the plugin checks for updates 2 times a day, and if they are available, it updates plugins or WP core.
+Please follow instructions below:
+
+1) Please check plugin's settings '/wp-admin/admin.php?page=updater-options'
+
+2) The plugin sends email in case if you have updates. If you do not have updates it will not send the email.
+
+3) It is possible that email messages are detected like spam on a server. Enter email ('Sender's name and email address' block), for example, gmail account or similar. If the message is approved (it will be sent), then the email filtering is configured on your server.
+
+4) Have you got notifications about new users registration? If no, perhaps you didn't configure email sending. Then You need to install the extra plugin called WP-mail-SMTP and configure it.
+
+
+= The plugin stopped sending emails after some time. What's the problem? =
+
+The plugin sends email in case if you have updates. If you do not have updates it will not send the email.
+
+
+= The time of sending does not match what I have specified (or default value). =
+
+The function for sending emails and updating is triggered when the site is active (when someone comes to your site.) If there is no any activity, then it will run when the first activity appears. So the time can be shifted.
+
+
+= How often the plugin will search for or/and update plugins and WordPress if I do not specify the time? =
+
+By default, Updater performs this every 12 hours. In auto mode, the Updater updates plugins or WP core, if updates are available.
+
+
+= I want the plugin to search for or/and update plugins and WordPress every 0.5 hours =
+
+It's impossible. The number of hours must be integer and it must not include more 5 digits.
 
 == Screenshots ==
 
@@ -50,8 +78,12 @@ In auto mode, the plugin checks for updates 2 times a day, and if they are avail
 
 == Changelog ==
 
+= V1.04 - 13.02.2013 =
+* NEW : Add sending a test email.
+* NEW : Add Frequently Asked Questions.
+
 = V1.03 - 06.02.2013 =
-* Bugfix : Bug in time to send mail was fixed.
+* Bugfix : Bug in time to send mail wase fixed.
 * Update : Email that send when new versions of plugins or WordPress are available was updated.
 
 = V1.02 - 28.01.2013 =
@@ -66,8 +98,11 @@ In auto mode, the plugin checks for updates 2 times a day, and if they are avail
 
 == Upgrade Notice ==
 
+= V1.04 =
+Add sending a test email. Add Frequently Asked Questions.
+
 = V1.03 =
-Bug in time to send mail was fixed. Email that send when new versions of plugins or WordPress are available was updated.
+Bug in time to send mail wase fixed. Email that send when new versions of plugins or WordPress are available was updated.
 
 = V1.02 = 
 Add sending email when new versions of plugins or WordPress are available. Bugs in admin menu were fixed. Css-style was updated. We updated all functionality for wordpress 3.5.1.
