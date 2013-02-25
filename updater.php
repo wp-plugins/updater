@@ -4,7 +4,7 @@ Plugin Name: Updater
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: This plugin allows you to update plugins and WP core in auto or manual mode.
 Author: BestWebSoft
-Version: 1.04
+Version: 1.05
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -105,9 +105,9 @@ if( ! function_exists( 'bws_add_menu_render' ) ) {
 // Create pages for the plugin
 if( ! function_exists( 'pdtr_add_admin_menu' ) ) {
 	function pdtr_add_admin_menu() {
-		add_menu_page( 'BWS Plugins', 'BWS Plugins', 'manage_options', 'bws_plugins', 'bws_add_menu_render', WP_CONTENT_URL . "/plugins/updater/images/px.png", 1001 ); 
-		add_submenu_page( 'bws_plugins', __( 'Updater options', 'updater' ), __( 'Updater options', 'updater' ), 'manage_options', "updater-options", 'pdtr_settings_page' );
-		add_submenu_page( 'tools.php', __( 'Updater','updater' ), __( 'Updater' , 'updater' ), 'manage_options', 'updater', 'pdtr_own_page' );
+		add_menu_page( 'BWS Plugins', 'BWS Plugins', 'manage_options', 'bws_plugins', 'bws_add_menu_render', WP_CONTENT_URL . "/plugins/updater/images/px.png", 1001 );		
+		add_submenu_page( 'bws_plugins', __( 'Updater','updater' ), __( 'Updater' , 'updater' ), 'manage_options', 'updater', 'pdtr_own_page' );
+		add_submenu_page( 'updater', __( 'Updater', 'updater' ), __( 'Updater', 'updater' ), 'manage_options', 'updater-options', 'pdtr_settings_page' );
 
 		//call register settings function
 		add_action( 'admin_init', 'pdtr_register_settings' );
@@ -179,10 +179,10 @@ if( ! function_exists( 'pdtr_schedules' ) ) {
 	function pdtr_schedules( $schedules ) {
 	    $pdtr_options = get_option( 'pdtr_options' );
 
-	    if ( '' != $pdtr_options['pdtr_time'] )
-	   		$schedules_hours = $pdtr_options['pdtr_time'];
-	    else 
-	    	$schedules_hours = 12;
+		if ( '' != $pdtr_options['pdtr_time'] )
+			$schedules_hours = $pdtr_options['pdtr_time'];
+		else 
+			$schedules_hours = 12;
 
 	    $schedules['schedules_hours'] = array( 'interval' => $schedules_hours*60*60, 'display' => 'Every ' . $schedules_hours . ' hours' );
 	    return $schedules;
@@ -228,11 +228,11 @@ if ( ! function_exists ( 'pdtr_settings_page' ) ) {
 					$email = get_option( 'admin_email' );
 
 				if ( $result_mail != true )
-					$message = __( "Sorry, your e-mail could not be delivered to ", 'updater' ) . $email; 
+					$message = __( "Sorry, your e-mail could not be delivered to", 'updater' ) . ' ' . $email; 
 				else
-					$message = __( "The test e-mail was delivered to ", 'updater' ) . $email;
+					$message = __( "The test e-mail was delivered to", 'updater' ) . ' ' . $email;
 			} else {
-				$message = __( "You don't check to send emails! Check it, save settings and try again.", 'updater' ) . $email;
+				$message = __( "You don't check to send emails! Check it, save settings and try again", 'updater' );
 			}
 		}
 
@@ -248,7 +248,7 @@ if ( ! function_exists ( 'pdtr_settings_page' ) ) {
 				if ( ( preg_match( "/^[0-9]{1,5}+$/", $_REQUEST['pdtr_time'] ) && "0" != $_REQUEST["pdtr_time"] ) || "" == $_REQUEST["pdtr_time"] )
 					$pdtr_options["pdtr_time"] = $_REQUEST["pdtr_time"];
 				else
-					$options_error = __( "Please input correct time for searching update or/and updating. The number of hours must be integer and it must not include more 5 digits. Settings are not saved.", 'updater' );
+					$options_error = __( "Please input correct time for searching update or/and updating. The number of hours must be integer and it must not include more 5 digits. Settings are not saved", 'updater' );
 			}
 
 			// if user enter receiver's email check if it correct. Save email if it pass the test.
@@ -256,7 +256,7 @@ if ( ! function_exists ( 'pdtr_settings_page' ) ) {
 				if ( ( preg_match( "/^((?:[a-z0-9']+(?:[a-z0-9\-_\.']+)?@[a-z0-9]+(?:[a-z0-9\-\.]+)?\.[a-z]{2,5})[, ]*)+$/i", trim( $_REQUEST["pdtr_to_email"] ) ) ) || "" == $_REQUEST["pdtr_to_email"] ) 
 					$pdtr_options["pdtr_to_email"] = $_REQUEST["pdtr_to_email"];
 				else
-					$options_error = __( "Please input correct receiver's email. Settings are not saved.", 'updater' );
+					$options_error = __( "Please input correct receiver's email. Settings are not saved", 'updater' );
 			}
 
 			$pdtr_options["pdtr_from_name"] =  htmlspecialchars( stripcslashes( $_REQUEST["pdtr_from_name"] ) );
@@ -266,14 +266,14 @@ if ( ! function_exists ( 'pdtr_settings_page' ) ) {
 				if ( ( preg_match( "/^((?:[a-z0-9']+(?:[a-z0-9\-_\.']+)?@[a-z0-9]+(?:[a-z0-9\-\.]+)?\.[a-z]{2,5})[, ]*)+$/i", trim( $_REQUEST["pdtr_from_email"] ) ) ) || "" == $_REQUEST["pdtr_from_email"] ) 
 					$pdtr_options["pdtr_from_email"] = $_REQUEST["pdtr_from_email"];
 				else
-					$options_error = __( "Please input correct sender's email. Settings are not saved.", 'updater' );
+					$options_error = __( "Please input correct sender's email. Settings are not saved", 'updater' );
 			}  	
 
 			// Update options in the database
 			update_option( 'pdtr_options', $pdtr_options, '', 'yes' );
 
 			if ( "" == $options_error )
-				$message = __( "All settings were saved.", 'updater' );
+				$message = __( "All settings were saved", 'updater' );
 
 		    // Add or delete hook of auto/handle mode
 			if ( ( '0' != $pdtr_options["pdtr_mode"] ) || ( '0' != $pdtr_options["pdtr_send_mail_get_update"] ) ) {
@@ -288,7 +288,7 @@ if ( ! function_exists ( 'pdtr_settings_page' ) ) {
 				} else {
 					wp_clear_scheduled_hook( 'pdtr_auto_hook' );
 					
-					if ( '' != $pdtr_options['pdtr_time'] )
+			   		if ( '' != $pdtr_options['pdtr_time'] )
 				   		$time = time()+$pdtr_options['pdtr_time']*60*60;
 				    else 
 				    	$time = time()+12*60*60;
@@ -302,11 +302,15 @@ if ( ! function_exists ( 'pdtr_settings_page' ) ) {
 		} // Display form on the setting page ?>
 		<div class="wrap">
 			<div class="icon32 icon32-bws" id="icon-options-general"></div>
-			<h2><?php _e('Updater options', 'updater' ); ?></h2>
+			<h2><?php _e('Updater | options', 'updater' ); ?></h2>
 			<div class="error"><p><strong><?php _e( 'We strongly recommend you to backup the entire site and your WordPress database before updating! We are not responsible for the correctness of the site after updates.', 'updater' ); ?></strong></p></div>
 			<div class="updated fade" <?php if ( !( isset( $_REQUEST["pdtr_form_submit"] ) || isset( $_REQUEST["pdtr_form_check_mail"] ) ) || "" != $options_error || "" == $message ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
 			<div class="error" <?php if ( "" == $options_error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $options_error; ?></strong></p></div>
-			<p><a target="_parent" title="<?php _e( 'Go to Updater page', 'updater' ); ?>" href="admin.php?page=updater"><?php _e( 'Go to Updater page', 'updater' ); ?></a><?php _e( ' to update your plugins or WP core in manual mode.', 'updater' ); ?></p>
+			<ul class="subsubsub">
+				<li><a href="admin.php?page=updater"><?php _e( 'Tools', 'updater' ); ?></a></li> |
+				<li><a class="current" href="admin.php?page=updater-options"><?php _e( 'Options', 'updater' ); ?></a></li>
+			</ul>
+			<div class="clear"></div>
 			<form method="post" action="admin.php?page=updater-options">
 			  	<table class="pdtr_settings form-table">
 					<tbody>
@@ -435,7 +439,7 @@ if ( ! function_exists ( 'pdtr_own_page' ) ) {
 			} else {
 				$plugins = "";
 			} ?>
-			<p><a target="_parent" title="<?php _e( 'Go to Updater page', 'updater' ); ?>" href="admin.php?page=updater"><?php _e( 'Return to Updater page', 'updater' ); ?></a></p>
+			<p><a target="_parent" title="<?php _e( 'Go to the Updater page', 'updater' ); ?>" href="admin.php?page=updater"><?php _e( 'Return to the Updater page', 'updater' ); ?></a></p>
 			<?php // send mail if it's need
 			if ( 1 == $pdtr_options["pdtr_send_mail_after_update"] ) {
 				$result_mail = pdtr_notification_after_update( $plugins, $core );
@@ -446,9 +450,9 @@ if ( ! function_exists ( 'pdtr_own_page' ) ) {
 					$email = get_option( 'admin_email' );
 
 				if ( $result_mail != true ) { ?>
-					<p><?php echo __( "Sorry, your e-mail could not be delivered to ", 'updater' ) . $email; ?></p>
+					<p><?php echo __( "Sorry, your e-mail could not be delivered to", 'updater' ) . ' ' . $email; ?></p>
 				<?php } else { ?>
-					<p><?php echo __( "The e-mail with results of updating was delivered to ", 'updater' ) . $email; ?></p>
+					<p><?php echo __( "The e-mail with results of updating was delivered to", 'updater' ) . ' ' . $email; ?></p>
 				<?php }
 			}
 			if ( '3.2' <= $wp_version )
@@ -458,8 +462,13 @@ if ( ! function_exists ( 'pdtr_own_page' ) ) {
 		} ?>
 		<div class="wrap">
 			<div class="icon32 icon32-bws" id="icon-options-general"></div>
-			<h2><?php _e( 'Updater', 'updater' ); ?></h2>
-			<div class="error"><p><strong><?php _e( 'We strongly recommend you to backup the entire site and your WordPress database before updating! We are not responsible for the correctness of the site after updates.', 'updater' ); ?></strong></p></div>
+			<h2><?php _e( 'Updater | tools', 'updater' ); ?></h2>
+			<div class="error"><p><strong><?php _e( 'We strongly recommend you to backup the entire site and your WordPress database before updating! We are not responsible for the correctness of the site after updates', 'updater' ); ?></strong></p></div>
+			<ul class="subsubsub">
+				<li><a class="current" href="admin.php?page=updater"><?php _e( 'Tools', 'updater' ); ?></a></li> |
+				<li><a href="admin.php?page=updater-options"><?php _e( 'Options', 'updater' ); ?></a></li>
+			</ul>
+			<div class="clear"></div>
 			<form method="post" action="admin.php?page=updater" enctype="multipart/form-data">
 				<table class="wp-list-table widefat pdtr" cellspacing="0">
 					<thead>
@@ -478,12 +487,12 @@ if ( ! function_exists ( 'pdtr_own_page' ) ) {
 								$version = $pdtr_core_plugin_list["core"]["current"];
 								if ( isset( $pdtr_core_plugin_list["core"]["new"] ) ) {
 									if ( $version != $pdtr_core_plugin_list["core"]["new"] ) {	
-										$message_update = __( 'Update to ', 'updater' ) . $pdtr_core_plugin_list["core"]["new"];
+										$message_update = __( 'Update to', 'updater' ) . ' ' . $pdtr_core_plugin_list["core"]["new"];
 									}
 								} ?>
 								<td class="manage-column check-column" <?php if( "" != $message_update ) echo "style=\"background:#e89b92\""; ?> >
 									<div <?php if ( "" != $message_update ) echo "class=\"update-message\""; ?>>
-										<div class="pdtr_left"><?php _e( 'Version ', 'updater' ); echo $version; ?></div> 
+										<div class="pdtr_left"><?php echo __( 'Version', 'updater' ) . ' ' . $version; ?></div> 
 										<?php if ( "" != $message_update ) { ?>
 											<div class="pdtr_right">
 												<input type='checkbox' name='checked_core' value='1'/>  
@@ -495,7 +504,7 @@ if ( ! function_exists ( 'pdtr_own_page' ) ) {
 						</tr>			
 						<?php if ( empty( $pdtr_core_plugin_list["plg_list"] ) ) { ?>
 							<tr>
-								<th><?php _e( 'No plugins found.', 'updater' ); ?></th>
+								<th><?php _e( 'No plugins found', 'updater' ); ?></th>
 							</tr>
 						<?php } else {
 							foreach ( $pdtr_core_plugin_list["plg_list"] as $plg_key => $value ) { ?>
@@ -507,14 +516,14 @@ if ( ! function_exists ( 'pdtr_own_page' ) ) {
 										foreach ( $pdtr_core_plugin_list["plg_need_update"] as $file => $plugin_up ) {
 											if ( $plg_key == $file ) {
 												if ( $version != $plugin_up["new_version"] ) {	
-													$message_update = __( 'Update to ', 'updater' ) . $plugin_up["new_version"];
+													$message_update = __( 'Update to', 'updater' ) . ' ' . $plugin_up["new_version"];
 												}
 											}
 										}	
 									} ?>
 									<td class="manage-column check-column" <?php if( "" != $message_update ) echo "style=\"background:#e89b92\""; ?> >								
 										<div <?php if ( "" != $message_update ) echo "class=\"update-message\""; ?>>
-											<div class="pdtr_left"><?php echo __( 'Version ', 'updater' ) . " " . $version; ?></div> 										
+											<div class="pdtr_left"><?php echo __( 'Version', 'updater' ) . " " . $version; ?></div> 										
 											<?php if ( "" != $message_update ) { ?>
 												<div class="pdtr_right">
 													<input type='checkbox' name='checked_plugin[]' value='<?php echo $plg_key; ?>'/> 
@@ -618,7 +627,7 @@ if ( ! function_exists ( 'pdtr_notification_after_update' ) ) {
 		// Get information about WP core and installed plugins from the website
 		$pdtr_core_plugin_list = pdtr_processing_site();		
 
-		$subject = esc_html__( 'Updating on ', 'updater' ) . esc_attr( get_bloginfo( 'name', 'display' ) );
+		$subject = esc_html__( 'Updating on', 'updater' ) .  ' ' . esc_attr( get_bloginfo( 'name', 'display' ) );
 		
 		$message = '<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 					<body>
@@ -681,12 +690,12 @@ if ( ! function_exists ( 'pdtr_notification_exist_update' ) ) {
 		// Get information about WP core and installed plugins from the website
 		$pdtr_core_plugin_list = pdtr_processing_site();		
 
-		$subject = esc_html__( 'Updating on ', 'updater' ) . esc_attr( get_bloginfo( 'name', 'display' ) );
+		$subject = esc_html__( 'Checking for update on', 'updater' ) . ' ' . esc_attr( get_bloginfo( 'name', 'display' ) );
 		
 		$message = '<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 					<body>
 					<h3>' . __( 'Hello!', 'updater' ) . '</h3>' . 
-					esc_html__( 'The Updater plugin had been run on your web-site', 'updater' ) . ' ' . '<a href=' . home_url() . '>' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '</a>';
+					esc_html__( 'The Updater plugin had been run on your web-site', 'updater' ) . ' <a href=' . home_url() . '>' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '</a>';
 		
 		if ( ( "" != $plugins_list ) || ( false != $core ) )
 			$message .= ' ' . __( 'and found the files need to be updated:', 'updater' ) . '<br/><br/>' ;
@@ -694,18 +703,18 @@ if ( ! function_exists ( 'pdtr_notification_exist_update' ) ) {
 			$message .= '.' . '<br/><br/>' ;
 
 		if ( "" != $plugins_list ) {
-			$message .= '<strong> - ' . __( 'These plugins can be updated:', 'updater' ) . '</strong>' . '<ul>';
+			$message .= '<strong> - ' . __( 'These plugins can be updated:', 'updater' ) . '</strong><ul>';
 			foreach ( $plugins_list as $key => $value ) {
 				$name = explode( "/", $value );
 				$message .= '<li>' . $name[0] . ' - ' . __( 'to version', 'updater' ) . ' ' . $pdtr_core_plugin_list["plg_need_update"][ $value ]["new_version"] .
-						 ' ('. __( 'current version is', 'updater' ) . ' ' . $pdtr_core_plugin_list["plg_list"][ $value ]["Version"] . ');' . '</li>';
+						 ' ('. __( 'current version is', 'updater' ) . ' ' . $pdtr_core_plugin_list["plg_list"][ $value ]["Version"] . ');</li>';
 			}
 			$message .= '</ul>';
 		}
 		
 		if ( true === $core ) {
 			$message .= '<strong> - ' . __( 'WordPress Core can be updated to version', 'updater' ) . ' ' . $pdtr_core_plugin_list["core"]["new"] .
-					 ' ('. __( 'current version is', 'updater' ) . ' ' . $pdtr_core_plugin_list["core"]["current"]. ').' . '</strong><br/>';
+					 ' ('. __( 'current version is', 'updater' ) . ' ' . $pdtr_core_plugin_list["core"]["current"]. ').</strong><br/>';
 		}
 
 		if ( false === $test ) {
@@ -813,11 +822,11 @@ if ( ! function_exists ( 'pdtr_auto_function' ) ) {
 		}
 
 		wp_clear_scheduled_hook( 'pdtr_auto_hook' );
-
+		
 		if ( '' != $pdtr_options['pdtr_time'] )
-	   		$time = time()+$pdtr_options['pdtr_time']*60*60;
+			$time = time()+$pdtr_options['pdtr_time']*60*60;
 	    else 
-	    	$time = time()+12*60*60;
+			$time = time()+12*60*60;
 
 		wp_schedule_event( $time, 'schedules_hours', 'pdtr_auto_hook' );		
 	}

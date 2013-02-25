@@ -4,7 +4,7 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10
 Tags: plugin, core, wordpress, update
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 1.04
+Stable tag: 1.05
 License: GPLv2 or later
 
 This plugin allows you to update plugins and WP core.
@@ -15,9 +15,9 @@ This plugin updates plugins and WP core. You can also choose the auto mode or th
 
 = User guide =
 
-1. After downloading and activating the plugin 'Updater advanced', you should go to the page 'Updater options' in 'BWS Plugins' menu, where plugin settings are located.
+1. After downloading and activating the plugin 'Updater', you should go to the page 'Updater | options' in 'BWS Plugins' menu, where plugin settings are located.
 2. On this page you should choose the type mode for the plugin and tune settings for the email notification.
-3. If you want to update your plugins or WP core in the manual mode you should go to the page 'Updater advanced' in 'Tools' menu. If WordPress or some of your plugins need to be updated it will be displayed in red. Check it and click 'update'.
+3. If you want to update your plugins or WP core in the manual mode you should go to the page 'Updater | tools'. If WordPress or some of your plugins need to be updated it will be displayed in red. Check it and click 'update'.
 
 = Translation =
 
@@ -35,7 +35,7 @@ Also, emails which are reporting about plugin's bugs are accepted for investigat
 
 1. Upload `updater` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Plugin settings are located in 'BWS Plugins', 'Updater options'.
+3. Plugin settings are located in 'BWS Plugins', 'Updater', 'options'.
 
 == Frequently Asked Questions ==
 
@@ -73,10 +73,14 @@ It's impossible. The number of hours must be integer and it must not include mor
 
 == Screenshots ==
 
-1. Updater Settings page.
-2. Updater page in the Tools admin area.
+1. Updater Options page.
+2. Updater page in the BWS admin area.
 
 == Changelog ==
+
+= V1.05 - 25.02.2013 =
+* Bugfix : The code refactoring was performed.
+* Update : Changed location of the pages.
 
 = V1.04 - 13.02.2013 =
 * NEW : Add sending a test email.
@@ -97,6 +101,9 @@ It's impossible. The number of hours must be integer and it must not include mor
 * NEW : Css-style was added.
 
 == Upgrade Notice ==
+
+= V1.05 =
+The code refactoring was performed. Changed location of the pages.
 
 = V1.04 =
 Add sending a test email. Add Frequently Asked Questions.
