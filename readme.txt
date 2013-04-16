@@ -4,7 +4,7 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10
 Tags: plugin, core, wordpress, update
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 1.06
+Stable tag: 1.07
 License: GPLv2 or later
 
 This plugin allows you to update plugins and WordPress core.
@@ -80,6 +80,9 @@ It's impossible. The number of hours should be integer and it should not include
 
 == Changelog ==
 
+= V1.07 - 16.04.2013 =
+* NEW : Added html blocks.
+
 = V1.06 - 08.04.2013 =
 * Update : We updated English language in the plugin.
 
@@ -106,6 +109,9 @@ It's impossible. The number of hours should be integer and it should not include
 * NEW : Css-style was added.
 
 == Upgrade Notice ==
+
+= V1.07 =
+Added html blocks.
 
 = V1.06 =
 We updated English language in the plugin.
