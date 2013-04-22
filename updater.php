@@ -310,10 +310,10 @@ if ( ! function_exists ( 'pdtr_settings_page' ) ) {
 				<li><a href="admin.php?page=updater"><?php _e( 'Tools', 'updater' ); ?></a></li> |
 				<li><a class="current" href="admin.php?page=updater-options"><?php _e( 'Options', 'updater' ); ?></a></li> |
 				<li>
-					<a class="pdtr_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is availible in Pro version', 'updater' ); ?>"><?php _e( 'User guide', 'updater' ); ?></a>
+					<a class="pdtr_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>"><?php _e( 'User guide', 'updater' ); ?></a>
 				</li> |
 				<li>
-					<a class="pdtr_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is availible in Pro version', 'updater' ); ?>"><?php _e( 'FAQ (with images)', 'updater' ); ?></a>
+					<a class="pdtr_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>"><?php _e( 'FAQ (with images)', 'updater' ); ?></a>
 				</li>
 			</ul>
 			<div class="clear"></div>
@@ -330,7 +330,7 @@ if ( ! function_exists ( 'pdtr_settings_page' ) ) {
 							</td>
 						</tr>
 						<tr valign="top">
-							<th><?php _e( 'Notify when a new versions of plugins or WordPress are available', 'updater' ); ?></th>
+							<th><?php _e( 'Notify when new versions of plugins or WordPress are available', 'updater' ); ?></th>
 							<td>
 								<input type="checkbox" name="pdtr_send_mail_get_update" value="1" <?php if( 1 == $pdtr_options["pdtr_send_mail_get_update"] ) echo "checked=\"checked\""; ?> />
 							</td>
@@ -381,7 +381,7 @@ if ( ! function_exists ( 'pdtr_settings_page' ) ) {
 			<h4><?php _e( "Send a test email message", 'updater' ); ?></h4>	
 			<form method="post" action="admin.php?page=updater-options">
 				<input type="hidden" name="pdtr_form_check_mail" value="submit" />
-				<p><?php _e( "Here You can check that your settings are correct and the email can be delivered.", 'updater' ); ?></p>	
+				<p><?php _e( "Here You can make sure that your settings are correct and the email can be delivered.", 'updater' ); ?></p>	
 				<input type="submit" class="button" value="<?php _e( 'Check email sending', 'updater' ) ?>" />		
 				<?php wp_nonce_field( plugin_basename(__FILE__), 'pdtr_nonce_check_mail' ); ?>
 			</form>
@@ -423,10 +423,10 @@ if ( ! function_exists ( 'pdtr_settings_page' ) ) {
 							</td>	
 						</tr>
 						<tr valign="top">
-							<th><?php _e( 'Automatically add current website to your main site', 'updater' ); ?></th>
+							<th><?php _e( 'Add current website to your main site automatically', 'updater' ); ?></th>
 							<th>
 								<input disabled type="text" name="pdtr_main_url" value="<?php echo $auto_add_url;?>" />
-								<p class="pdtr_span"><?php _e( 'Enter the main site url if you want automatically add all settings for current site to the Updater Pro table in the main site. (For example: http://example.com)', 'updater' ); ?></p>
+								<p class="pdtr_span"><?php _e( 'Enter the main site URL if You would like to add the current site settings to the Updater Pro table on the main site automatically. (For example: http://example.com)', 'updater' ); ?></p>
 							</th>
 							<td>
 								<input disabled type="submit" class="button" value="<?php echo __( 'Auto add', 'updater' ); ?>" />
@@ -434,11 +434,11 @@ if ( ! function_exists ( 'pdtr_settings_page' ) ) {
 						</tr>
 					</tbody>
 				</table>
-				<h3><?php _e( 'Here you can see all added websites or add settings for website, which plugins and WP core you want to update', 'updater' ); ?></h3>
+				<h3><?php _e( 'Here You can see all added websites or add settings for the website, where you\'d like to update plugins and WP core', 'updater' ); ?></h3>
 				<table class="wp-list-table widefat pdtr_pro_version" style="width: auto;">
 					<thead>
 						<tr>
-							<th class="manage-column" scope="col"><?php _e( 'Url *', 'updater' ); ?><br /><p class="pdtr_span"><?php _e( '( For example: http://example.com )', 'updater' ); ?></p>
+							<th class="manage-column" scope="col"><?php _e( 'URL *', 'updater' ); ?><br /><p class="pdtr_span"><?php _e( '( For example: http://example.com )', 'updater' ); ?></p>
 							</th>
 							<th class="manage-column" scope="col"><?php _e( 'The path to the folder with plugins *', 'updater' ); ?><br /><p class="pdtr_span"><?php _e( '(Change it if You know that your plugins are stored in another folder)', 'updater' ); ?></p>
 							</th>
@@ -465,20 +465,20 @@ if ( ! function_exists ( 'pdtr_settings_page' ) ) {
 				</p>
 				<p><input disabled type="checkbox" value="1" /> <?php _e( "Export & Import", 'updater' ); ?></p>
 						
-				<h4><?php _e( 'Add settings for websites by uploading a CSV (.csv) file', 'updater' ); ?></h4>					
-				<p><?php _e( "Choose a CSV (.csv) file to upload, then click 'Upload file'.", 'updater' ); ?></p>			
+				<h4><?php _e( 'Add settings for the websites via CSV (.csv) file', 'updater' ); ?></h4>					
+				<p><?php _e( "Choose CSV (.csv) file and click 'Upload file'.", 'updater' ); ?></p>			
 				<p>
 					<?php _e( 'Here you can download the example of a CSV file: ', 'updater' ); ?> 
 					<?php _e( 'The example.csv', 'updater' ); ?>
 				</p>
 				<p><?php _e( "The plugin will automatically upload himself to all websites and get all necessary settings. It take a lot of time for processing all sites, so, please, be patient and don't go from the page until You see all results.", 'updater' ); ?></p>					
 				<p>
-					<label for="upload"><?php _e( 'Choose a file from your computer:', 'updater' ); ?></label>
+					<label for="upload"><?php _e( 'Choose file on Your computer:', 'updater' ); ?></label>
 					<input disabled type="file" size="25" name="import" id="upload">
 					<input disabled type="submit" value="<?php _e( 'Upload file', 'updater' ); ?>" class="button" id="submit" name="submit">
 				</p>
-				<strong><?php _e( 'Upload Updater Pro on a website and get settings', 'updater' ); ?></strong>					
-				<p><?php _e( "The plugin will automatically upload himself to the website and get all necessary settings.", 'updater' ); ?></p>
+				<strong><?php _e( 'Upload Updater Pro to the website and get settings', 'updater' ); ?></strong>					
+				<p><?php _e( "The plugin will be uploaded to all websites automatically and get the necessary settings.", 'updater' ); ?></p>
 				<table class="form-table pdtr_pro_version">
 					<tbody>
 						<tr valign="top">
@@ -517,7 +517,7 @@ if ( ! function_exists ( 'pdtr_settings_page' ) ) {
 							<th><select disabled><option value="csv">CSV file</option></select></th>
 							<td><input disabled type="submit" class="button" value="<?php echo __( 'Export', 'updater' ); ?>" /></td>
 						</tr>
-						<th><?php _e( 'Import all settings for sites from the CSV file if you export them earlier', 'updater' ); ?></th>
+						<th><?php _e( 'Import all settings using CSV file if you have exported them before', 'updater' ); ?></th>
 						<th>
 							<input disabled type="file" size="26" name="import" id="upload">
 						</th>
@@ -624,26 +624,26 @@ if ( ! function_exists ( 'pdtr_own_page' ) ) {
 				<li><a class="current" href="admin.php?page=updater"><?php _e( 'Tools', 'updater' ); ?></a></li> |
 				<li><a href="admin.php?page=updater-options"><?php _e( 'Options', 'updater' ); ?></a></li> |
 				<li>
-					<a class="pdtr_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is availible in Pro version', 'updater' ); ?>"><?php _e( 'User guide', 'updater' ); ?></a>
+					<a class="pdtr_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>"><?php _e( 'User guide', 'updater' ); ?></a>
 				</li> |
 				<li>
-					<a class="pdtr_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is availible in Pro version', 'updater' ); ?>"><?php _e( 'FAQ (with images)', 'updater' ); ?></a>
+					<a class="pdtr_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>"><?php _e( 'FAQ (with images)', 'updater' ); ?></a>
 				</li>
 			</ul>
 			<div class="clear"></div>
-			<a class="pdtr_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is availible in Pro version', 'updater' ); ?>" style="width: 450px;display: block;">
+			<a class="pdtr_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>" style="width: 450px;display: block;">
 				<div class="pdtr_pro_version_content" style="width:450px;margin:0 0 15px;">
 					<p>
-						<?php _e( 'N/A - not applicable', 'updater' ); ?><br/>
-						<img class="pdtr_img" src="<?php echo plugins_url( 'images/unlock.png' , __FILE__ );?>" alt=""/> - <?php _e( "the element will be update", 'updater' ); ?><br/>
-						<img class="pdtr_img" src="<?php echo plugins_url( 'images/lock.png' , __FILE__ );?>" alt=""/> - <?php _e( "the element will not be update", 'updater' ); ?><br/>
+						<?php _e( 'N/A - not installed', 'updater' ); ?><br/>
+						<img class="pdtr_img" src="<?php echo plugins_url( 'images/unlock.png' , __FILE__ );?>" alt=""/> - <?php _e( "the element will be updated", 'updater' ); ?><br/>
+						<img class="pdtr_img" src="<?php echo plugins_url( 'images/lock.png' , __FILE__ );?>" alt=""/> - <?php _e( "the element will not be updated", 'updater' ); ?><br/>
 					</p>					
 					<p>
-						<input disabled type="submit" class="button" value="<?php _e( "Update information", 'updater' ); ?>" /><?php echo ' ' . __( 'Last update was', 'updater' ) . ' ' . current_time('mysql') . ' ' . $gmt; ?>
+						<input disabled type="submit" class="button" value="<?php _e( "Update information", 'updater' ); ?>" /><?php echo ' ' . __( 'Latest update was', 'updater' ) . ' ' . current_time('mysql') . ' ' . $gmt; ?>
 					</p>
 					<p>
 						<input disabled type="checkbox" value="1" />
-						<?php _e( 'Updater Pro will display, check and update all plugins (Not just active)', 'updater' ); ?>
+						<?php _e( 'Updater Pro will display, check and update all plugins (Not just the active ones)', 'updater' ); ?>
 					</p>
 				</div>
 			</a>

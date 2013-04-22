@@ -13,7 +13,7 @@ This plugin allows you to update plugins and WordPress core.
 
 This plugin updates plugins and WordPress core. You can also use the auto mode or manual mode for updating and set email notifications. 
 
-= User guide =
+= User Guide =
 
 1. After downloading and activating the plugin 'Updater advanced', you should go to the page 'Updater options' in the 'BWS Plugins' menu, where the plugin settings are available.
 2. On this page you should choose the plugin mode and edit email notifications settings.
@@ -45,13 +45,13 @@ We can fix some things for free for the users who provide translation of our plu
 
 Please follow the instructions below:
 
-1) Please check the plugin settings '/wp-admin/admin.php?page=updater-options'
+1. Please check the plugin settings '/wp-admin/admin.php?page=updater-options'
 
-2) The plugin sends email notifications if any updates are available. 
+2. The plugin sends email notifications if any updates are available. 
 
-3) Some email messages can be marked as spam on the server. Enter email address ('Sender's name and email address), for example, gmail account or similar. If the message is approved (sent), this means that the email filtering is configured on your server.
+3. Some email messages can be marked as spam on the server. Enter email address ('Sender's name and email address'), for example, gmail account or similar. If the message is approved (sent), this means that the email filtering is configured on your server.
 
-4) Are you getting any notifications about new users registration? If no, perhaps you didn't configure email sending. In this case You should install an extra plugin called WP-mail-SMTP and configure it.
+4. Are you getting any notifications about new users registration? If no, perhaps you didn't configure email sending. In this case You should install an extra plugin called WP-mail-SMTP and configure it.
 
 
 = The plugin stopped sending emails after some time. What's the problem? =
@@ -84,7 +84,7 @@ It's impossible. The number of hours should be integer and it should not include
 * NEW : Added html blocks.
 
 = V1.06 - 08.04.2013 =
-* Update : We updated English language in the plugin.
+* Update : We updated the English language in the plugin.
 
 = V1.05 - 25.02.2013 =
 * Bugfix : The code refactoring.
@@ -114,7 +114,7 @@ It's impossible. The number of hours should be integer and it should not include
 Added html blocks.
 
 = V1.06 =
-We updated English language in the plugin.
+We updated the English language in the plugin.
 
 = V1.05 =
 The code refactoring. Changed location of the pages.
