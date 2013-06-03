@@ -9,12 +9,12 @@ License: GPLv2 or later
 
 This plugin allows you to update plugins and WordPress core.
 
-<a href="http://wordpress.org/extend/plugins/updater/faq/" target="_blank">FAQ</a>
-<a href="http://support.bestwebsoft.com" target="_blank">Support</a>
-
 == Description ==
 
 This plugin updates plugins and WordPress core. You can also use the auto mode or manual mode for updating and set email notifications. 
+
+<a href="http://wordpress.org/extend/plugins/updater/faq/" target="_blank">FAQ</a>
+<a href="http://support.bestwebsoft.com" target="_blank">Support</a>
 
 = User Guide =
 
