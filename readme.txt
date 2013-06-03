@@ -4,10 +4,13 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10
 Tags: plugin, core, wordpress, update
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 1.07
+Stable tag: 1.08
 License: GPLv2 or later
 
 This plugin allows you to update plugins and WordPress core.
+
+<a href="http://wordpress.org/extend/plugins/updater/faq/" target="_blank">FAQ</a>
+<a href="http://support.bestwebsoft.com" target="_blank">Support</a>
 
 == Description ==
 
@@ -15,15 +18,15 @@ This plugin updates plugins and WordPress core. You can also use the auto mode o
 
 = User Guide =
 
-1. After downloading and activating the plugin 'Updater advanced', you should go to the page 'Updater options' in the 'BWS Plugins' menu, where the plugin settings are available.
+1. After downloading and activating the plugin 'Updater', you should go to the page 'Updater' => 'Options' in the 'BWS Plugins' menu, where the plugin settings are available.
 2. On this page you should choose the plugin mode and edit email notifications settings.
-3. If you want to update your plugins or WP core in the manual mode you should go to the page 'Updater advanced' in the 'Tools' menu. If WordPress or some of your plugins needs update it will be highlighted in red. Check it and click 'update'.
+3. If you want to update your plugins or WP core in the manual mode you should go to the page 'Updater' in the 'Tools' menu. If WordPress or some of your plugins needs update it will be highlighted in red. Check it and click 'update'.
 
 = Translation =
 
 * Russian (ru_RU)
 
-If you would like to create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text of PO and MO files</a> for <a href="http://bestwebsoft.com/" target="_blank">BWS</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files  <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
+If you would like to create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text of PO and MO files</a> for <a href="http://support.bestwebsoft.com" target="_blank">BWS</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files  <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
 
 = Technical support =
 
@@ -44,30 +47,22 @@ We can fix some things for free for the users who provide translation of our plu
 = The plugin doesn't send any emails =
 
 Please follow the instructions below:
-
 1. Please check the plugin settings '/wp-admin/admin.php?page=updater-options'
-
 2. The plugin sends email notifications if any updates are available. 
-
 3. Some email messages can be marked as spam on the server. Enter email address ('Sender's name and email address'), for example, gmail account or similar. If the message is approved (sent), this means that the email filtering is configured on your server.
-
 4. Are you getting any notifications about new users registration? If no, perhaps you didn't configure email sending. In this case You should install an extra plugin called WP-mail-SMTP and configure it.
-
 
 = The plugin stopped sending emails after some time. What's the problem? =
 
 The plugin sends email notification if any updates are available. If there are no updates available, you won't get anything.
 
-
 = The time of sending does not match what I have specified (or default value). =
 
 The function for sending emails and updating is triggered when the site is active (when someone visits your site.) If there is no activity, it will run when the first activity appears. So the time can be shifted.
 
-
 = How often the plugin will search for updates or/and update plugins and WordPress if I did not specify the time? =
 
 Updater does it every 12 hours by default. In auto mode Updater updates plugins or WP if any updates are available.
-
 
 = I want the plugin to search for updates or/and update plugins and WordPress every 0.5 hours =
 
@@ -79,6 +74,9 @@ It's impossible. The number of hours should be integer and it should not include
 2. Updater page in the BWS admin area.
 
 == Changelog ==
+
+= V1.08 - 03.06.2013 =
+* Update : BWS plugins section is updated.
 
 = V1.07 - 16.04.2013 =
 * NEW : Added html blocks.
@@ -109,6 +107,9 @@ It's impossible. The number of hours should be integer and it should not include
 * NEW : Css-style was added.
 
 == Upgrade Notice ==
+
+= V1.08 =
+BWS plugins section is updated.
 
 = V1.07 =
 Added html blocks.
