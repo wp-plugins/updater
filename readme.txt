@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10&product_id=13
 Tags: plugin, core, wordpress, update
 Requires at least: 3.0
-Tested up to: 3.5.1
-Stable tag: 1.08
+Tested up to: 3.5.2
+Stable tag: 1.09
 License: GPLv2 or later
 
 This plugin allows you to update plugins and WordPress core.
@@ -26,7 +26,7 @@ This plugin updates plugins and WordPress core. You can also use the auto mode o
 
 * Russian (ru_RU)
 
-If you would like to create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text of PO and MO files</a> for <a href="http://support.bestwebsoft.com" target="_blank">BWS</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files  <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
+If you would like to create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text of PO and MO files</a> for <a href="http://support.bestwebsoft.com" target="_blank">BestWebSoft</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files  <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
 
 = Technical support =
 
@@ -75,6 +75,10 @@ It's impossible. The number of hours should be integer and it should not include
 
 == Changelog ==
 
+= V1.09 - 18.07.2013 =
+* NEW : Added an ability to view and send system information by mail.
+* Update : We updated all functionality for wordpress 3.5.2.
+
 = V1.08 - 03.06.2013 =
 * Update : BWS plugins section is updated.
 
@@ -107,6 +111,9 @@ It's impossible. The number of hours should be integer and it should not include
 * NEW : Css-style was added.
 
 == Upgrade Notice ==
+
+= V1.09 =
+Added an ability to view and send system information by mail. We updated all functionality for wordpress 3.5.2.
 
 = V1.08 =
 BWS plugins section is updated.
