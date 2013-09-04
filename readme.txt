@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10&product_id=13
 Tags: plugin, core, wordpress, update
 Requires at least: 3.0
-Tested up to: 3.5.2
-Stable tag: 1.09
+Tested up to: 3.6
+Stable tag: 1.10
 License: GPLv2 or later
 
 This plugin allows you to update plugins and WordPress core.
@@ -75,6 +75,10 @@ It's impossible. The number of hours should be integer and it should not include
 
 == Changelog ==
 
+= V1.10 - 04.09.2013 =
+* Update : We updated all functionality for wordpress 3.6.
+* Update : Function for displaying BWS plugins section placed in a separate file and has own language files.
+
 = V1.09 - 18.07.2013 =
 * NEW : Added an ability to view and send system information by mail.
 * Update : We updated all functionality for wordpress 3.5.2.
@@ -111,6 +115,9 @@ It's impossible. The number of hours should be integer and it should not include
 * NEW : Css-style was added.
 
 == Upgrade Notice ==
+
+= V1.10 =
+We updated all functionality for wordpress 3.6. Function for displaying BWS plugins section placed in a separate file and has own language files
 
 = V1.09 =
 Added an ability to view and send system information by mail. We updated all functionality for wordpress 3.5.2.
