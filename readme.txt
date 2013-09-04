@@ -60,7 +60,7 @@ The plugin sends email notification if any updates are available. If there are n
 
 The function for sending emails and updating is triggered when the site is active (when someone visits your site.) If there is no activity, it will run when the first activity appears. So the time can be shifted.
 
-= How often the plugin will search for updates or/and update plugins and WordPress if I did not specify the time? =
+= How often will the plugin search for updates or/and update plugins and WordPress if I did not specify the time? =
 
 Updater does it every 12 hours by default. In auto mode Updater updates plugins or WP if any updates are available.
 
