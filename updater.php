@@ -4,7 +4,7 @@ Plugin Name: Updater
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: This plugin allows you to update plugins and WP core in auto or manual mode.
 Author: BestWebSoft
-Version: 1.10
+Version: 1.11
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
