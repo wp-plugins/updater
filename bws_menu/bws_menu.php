@@ -28,7 +28,8 @@ if ( ! function_exists( 'bws_add_menu_render' ) ) {
 			array( 'google-sitemap-plugin\/google-sitemap-plugin.php', 'Google sitemap plugin', 'http://bestwebsoft.com/plugin/google-sitemap-plugin/', 'http://bestwebsoft.com/plugin/google-sitemap-plugin/#download', '/wp-admin/plugin-install.php?tab=search&type=term&s=Google+sitemap+plugin+bestwebsoft&plugin-search-input=Search+Plugins', 'admin.php?page=google-sitemap-plugin.php' ),
 			array( 'updater\/updater.php', 'Updater', 'http://bestwebsoft.com/plugin/updater-plugin/', 'http://bestwebsoft.com/plugin/updater-plugin/#download', '/wp-admin/plugin-install.php?tab=search&type=term&s=updater+bestwebsoft&plugin-search-input=Search+Plugins', 'admin.php?page=updater-options' ),
 			array( 'custom-fields-search\/custom-fields-search.php', 'Custom Fields Search', 'http://bestwebsoft.com/plugin/custom-fields-search/', 'http://bestwebsoft.com/plugin/custom-fields-search/#download', '/wp-admin/plugin-install.php?tab=search&type=term&s=Custom+Fields+Search+bestwebsoft&plugin-search-input=Search+Plugins', 'admin.php?page=custom_fields_search.php' ),
-			array( 'google-plus-one\/google-plus-one.php', 'Google +1', 'http://bestwebsoft.com/plugin/google-plus-one/', 'http://bestwebsoft.com/plugin/google-plus-one/#download', '/wp-admin/plugin-install.php?tab=search&type=term&s=Google+%2B1+bestwebsoft&plugin-search-input=Search+Plugins', 'admin.php?page=google-plus-one.php' )
+			array( 'google-one\/google-plus-one.php', 'Google +1', 'http://bestwebsoft.com/plugin/google-plus-one/', 'http://bestwebsoft.com/plugin/google-plus-one/#download', '/wp-admin/plugin-install.php?tab=search&type=term&s=Google+%2B1+bestwebsoft&plugin-search-input=Search+Plugins', 'admin.php?page=google-plus-one.php' ),
+			array( 'relevant\/related-posts-plugin.php', 'Related Posts Plugin', 'http://bestwebsoft.com/plugin/related-posts-plugin/', 'http://bestwebsoft.com/plugin/related-posts-plugin/#download', '/wp-admin/plugin-install.php?tab=search&s=Related+Posts+Plugin+Bestwebsoft&plugin-search-input=Search+Plugins', 'admin.php?page=related-posts-plugin.php' )
 		);
 		foreach ( $array_plugins as $plugins ) {
 			if( 0 < count( preg_grep( "/".$plugins[0]."/", $active_plugins ) ) ) {
@@ -57,7 +58,8 @@ if ( ! function_exists( 'bws_add_menu_render' ) ) {
 		$array_plugins_pro	= array(
 			array( 'gallery-plugin-pro\/gallery-plugin-pro.php', 'Gallery Pro', 'http://bestwebsoft.com/plugin/gallery-pro/?k=382e5ce7c96a6391f5ffa5e116b37fe0', 'http://bestwebsoft.com/plugin/gallery-pro/?k=382e5ce7c96a6391f5ffa5e116b37fe0#purchase', 'admin.php?page=gallery-plugin-pro.php' ),
 			array( 'contact-form-pro\/contact_form_pro.php', 'Contact Form Pro', 'http://bestwebsoft.com/plugin/contact-form-pro/?k=773dc97bb3551975db0e32edca1a6d71', 'http://bestwebsoft.com/plugin/contact-form-pro/?k=773dc97bb3551975db0e32edca1a6d71#purchase', 'admin.php?page=contact_form_pro.php' ),
-			array( 'captcha-pro\/captcha_pro.php', 'Captcha Pro', 'http://bestwebsoft.com/plugin/captcha-pro/?k=ff7d65e55e5e7f98f219be9ed711094e', 'http://bestwebsoft.com/plugin/captcha-pro/?k=ff7d65e55e5e7f98f219be9ed711094e#purchase', 'admin.php?page=captcha_pro.php' )
+			array( 'captcha-pro\/captcha_pro.php', 'Captcha Pro', 'http://bestwebsoft.com/plugin/captcha-pro/?k=ff7d65e55e5e7f98f219be9ed711094e', 'http://bestwebsoft.com/plugin/captcha-pro/?k=ff7d65e55e5e7f98f219be9ed711094e#purchase', 'admin.php?page=captcha_pro.php' ),
+			array( 'updater-pro\/updater_pro.php', 'Updater Pro', 'http://bestwebsoft.com/plugin/updater-pro?k=cf633acbefbdff78545347fe08a3aecb', 'http://bestwebsoft.com/plugin/updater-pro?k=cf633acbefbdff78545347fe08a3aecb#purchase', 'admin.php?page=updater-pro-options' )
 		);
 		foreach ( $array_plugins_pro as $plugins ) {
 			if( 0 < count( preg_grep( "/".$plugins[0]."/", $active_plugins ) ) ) {

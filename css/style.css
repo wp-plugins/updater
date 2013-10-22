@@ -3,7 +3,7 @@ Plugin Name: Updater
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: This plugin allows you to update plugins and WP core in auto or manual mode.
 Author: BestWebSoft
-Version: 1.11
+Version: 1.12
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -93,70 +93,113 @@ License: GPLv2 or later
     border-width: 1px;
 	width: 300px;
 }
-a.pdtr_pro_version {
-	text-decoration: none;
-	color: #666666;	
-    position: relative;
-}
-div.pdtr_pro_version {
-	border: 1px solid #AAAAAA;
-	background: #E0E0E0;
-	padding: 2px 3px;
-}
-.pdtr_pro_version_tooltip {
-    left: 675px;
-    margin-top: -55px;
-	position: absolute;
-	width: 380px;
-	border: 1px solid #AAAAAA;
-	padding: 10px;
-    border-radius: 5px;
-    text-shadow: rgba(0, 0, 0, 0.1) 1px 1px 1px;
-    box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px 0px;
-    background: #FFFFFF;
-}
-.pdtr_pro_version_tooltip:before {
-    content: "";
-    position: absolute;
-    border-width: 10px;
-    border-style: solid;
-    border-color: #FFFFFF transparent transparent;
-   	top: 53px;
-    left: 30px;
-}
-.pdtr_pro_version_content {
-	border: 1px solid #AAAAAA;
-	background: #E0E0E0;
-	padding: 5px 10px;
-	margin-top: 20px; 
-	color: #555555;
-}
-.pdtr_pro_version th,
-.pdtr_pro_version td{
-	color: #555555;
-}
-.form-table.pdtr_pro_version th {
-    width: 300px;
-}
-.pdtr_pro_version input,
-.pdtr_pro_version select {
-	color: #555555;
-}
 .pdtr_span {
 	color: #888888;
 	font-size: 10px;
 	margin: 0;
 }
-.form-table.pdtr_pro_version input[type="text"] {
-    width: 270px;
+/* css for pro-version block */
+.bws_pro_version {	
+    background: #E0E0E0;
+    border: 1px solid #AAAAAA;
+    margin-bottom: 5px;
+    width: auto !important;
+    float: left;
+}
+.bws_pro_version th,
+.bws_pro_version td {
+	color: #555555;
+}
+.bws_pro_version_tooltip:before {
+    content: url("../images/arrow.png");
+    height: 0;
+    left: -14px;
+    position: absolute;
+    top: 12px;
+    width: 0;
+}
+.bws_pro_version_tooltip {
+    background: #FFFFFF;
+    border: 1px solid #AAAAAA;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.1);
+    float: right;
+    left: 550px;
+    margin-top: 20px;
+    padding: 10px;
+    position: absolute;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    width: 380px;
+}
+a.bws_plugin_menu_pro_version,
+.bws_plugin_menu_pro_version:hover {
+	text-decoration: none;
+	color: #666666;	
+    position: relative;
 }
 .pdtr_img {
 	margin-bottom: -3px;
 	opacity: 0.6;
 }
-td.pdtr_pro_version,
-th.pdtr_pro_version {
-	background: #E0E0E0;
-	border-left: 1px solid #DFDFDF;
-	color: #919191 !important;
+/* banner on the plugins page */
+.pdtr_message {
+    min-width:800px;
+    border:1px solid #d4d4d4;
+    margin:12px 0;
+    background:#ececec;
+    -moz-border-radius:3px;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    position:relative;
+    overflow:hidden
+}
+.pdtr_message .pdtr_text {
+    color:#000;
+    font-size: 15px;
+    line-height: 26px;
+    margin-top: 13px;
+    float: left;
+}
+.pdtr_message .pdtr_text span {
+    font-size: 12px;
+    opacity: 0.7;
+}
+.pdtr_message .pdtr_button {
+    float: left;
+    border:1px solid #1f75ad; 
+    font-size:14px;
+    margin: 15px 19px 15px 16px;
+    padding:12px 0;
+    color:#FFF;
+    text-shadow: 0 1px 3px #636363;
+    font-weight: bold;
+    background:#227cc2;
+    -moz-border-radius:3px;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    text-decoration:none;
+    height: 50px;
+    text-align: center;
+    width: 147px;
+    -moz-box-shadow:0px 1px 1px 0 #43acd9 inset;
+    -webkit-box-shadow:0px 1px 1px 0 #43acd9 inset;
+    box-shadow:0px 1px 1px 0 #43acd9 inset;
+}
+.pdtr_message .pdtr_button:hover,
+.pdtr_message .pdtr_button:focus {    
+    background:#f26e50;
+    color:#FFF;
+    border:1px solid #bf573f;
+    -moz-box-shadow:0px 1px 1px 0 #f5906f inset;
+    -webkit-box-shadow:0px 1px 1px 0 #f5906f inset;
+    box-shadow: 0px 1px 1px 0 #f5906f inset;
+}
+.pdtr_message .pdtr_icon {
+    float: right;
+    margin: 18px 0;
+}
+.pdtr_message .pdtr_close_icon {
+    float: right;
+    margin: 8px;
+    cursor: pointer;
 }

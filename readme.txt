@@ -4,7 +4,7 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10
 Tags: plugin, core, wordpress, update
 Requires at least: 3.0
 Tested up to: 3.6.1
-Stable tag: 1.11
+Stable tag: 1.12
 License: GPLv2 or later
 
 This plugin allows you to update plugins and WordPress core.
@@ -16,6 +16,8 @@ There is also a premium version of the plugin with more useful features availabl
 
 <a href="http://wordpress.org/extend/plugins/updater/faq/" target="_blank">FAQ</a>
 <a href="http://support.bestwebsoft.com" target="_blank">Support</a>
+
+<a href="http://bestwebsoft.com/plugin/updater-pro?k=49e226d45dc4d3465a079fa62317eab2" target="_blank" title="Updater Pro">Upgrade to Pro Version</a>
 
 = User Guide =
 
@@ -72,10 +74,13 @@ It's impossible. The number of hours should be integer and it should not include
 
 == Screenshots ==
 
-1. Updater Options page.
+1. Updater Settings page.
 2. Updater page in the BWS admin area.
 
 == Changelog ==
+
+= V1.12 - 22.10.2013 =
+* Update : Screenshots and BWS menu were updated.
 
 = V1.11 - 02.10.2013 =
 * Update : We updated all functionality for wordpress 3.6.1.
@@ -121,6 +126,9 @@ It's impossible. The number of hours should be integer and it should not include
 * NEW : Css-style was added.
 
 == Upgrade Notice ==
+
+= V1.12 =
+Screenshots and BWS menu were updated.
 
 = V1.11 =
 We updated all functionality for wordpress 3.6.1. The Ukrainian language file is added to the plugin.

@@ -4,7 +4,7 @@ Plugin Name: Updater
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: This plugin allows you to update plugins and WP core in auto or manual mode.
 Author: BestWebSoft
-Version: 1.11
+Version: 1.12
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -45,13 +45,13 @@ if( ! function_exists( 'pdtr_register_settings' ) ) {
 		global $wpmu, $pdtr_options;
 
 		$pdtr_option_defaults = array(
-			'pdtr_mode' =>  '0',
+			'pdtr_mode'						=>  '0',
 			'pdtr_send_mail_after_update'	=> '1',
-			'pdtr_send_mail_get_update'	=> '1',
-			'pdtr_time'=> '12',
-			'pdtr_to_email' => '',
-			'pdtr_from_name' => '',
-			'pdtr_from_email' => ''
+			'pdtr_send_mail_get_update'		=> '1',
+			'pdtr_time'						=> '12',
+			'pdtr_to_email'					=> '',
+			'pdtr_from_name'				=> '',
+			'pdtr_from_email'				=> ''
 	  	);
 
 	  	// install the option defaults
@@ -93,7 +93,7 @@ if ( ! function_exists( 'pdtr_register_plugin_links' ) ) {
 		if ( $file == $base ) {
 			$links[] = '<a href="admin.php?page=updater-options">' . __( 'Settings', 'updater' ) . '</a>';
 			$links[] = '<a href="http://wordpress.org/extend/plugins/updater/faq/" target="_blank">' . __( 'FAQ', 'updater' ) . '</a>';
-			$links[] = '<a href="Mailto:plugin@bestwebsoft.com">' . __( 'Support', 'updater' ) . '</a>';
+			$links[] = '<a href="http://support.bestwebsoft.com">' . __( 'Support', 'updater' ) . '</a>';
 		}
 		return $links;
 	}
@@ -128,6 +128,8 @@ if ( ! function_exists ( 'pdtr_settings_page' ) ) {
 		global $plugins, $pdtr_options;
 		$options_error = "";
 		$message = "";
+
+		$plugin_info = get_plugin_data( __FILE__ );
 
 		// Check mail
 		if ( isset( $_REQUEST["pdtr_form_check_mail"] ) && check_admin_referer( plugin_basename(__FILE__), 'pdtr_nonce_check_mail' ) ) {
@@ -228,18 +230,18 @@ if ( ! function_exists ( 'pdtr_settings_page' ) ) {
 		} // Display form on the setting page ?>
 		<div class="wrap">
 			<div class="icon32 icon32-bws" id="icon-options-general"></div>
-			<h2><?php _e('Updater | options', 'updater' ); ?></h2>
+			<h2><?php _e('Updater | Settings', 'updater' ); ?></h2>
 			<div class="error"><p><strong><?php _e( 'We strongly recommend that you backup your website and the WordPress database before updating! We are not responsible for the site work after updates', 'updater' ); ?></strong></p></div>
 			<div class="updated fade" <?php if ( !( isset( $_REQUEST["pdtr_form_submit"] ) || isset( $_REQUEST["pdtr_form_check_mail"] ) ) || "" != $options_error || "" == $message ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
 			<div class="error" <?php if ( "" == $options_error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $options_error; ?></strong></p></div>
 			<ul class="subsubsub">
 				<li><a href="admin.php?page=updater"><?php _e( 'Tools', 'updater' ); ?></a></li> |
-				<li><a class="current" href="admin.php?page=updater-options"><?php _e( 'Options', 'updater' ); ?></a></li> |
+				<li><a class="current" href="admin.php?page=updater-options"><?php _e( 'Settings', 'updater' ); ?></a></li> |
 				<li>
-					<a class="pdtr_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>"><?php _e( 'User guide', 'updater' ); ?></a>
+					<a class="bws_plugin_menu_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>"><?php _e( 'User guide', 'updater' ); ?></a>
 				</li> |
 				<li>
-					<a class="pdtr_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>"><?php _e( 'FAQ (with images)', 'updater' ); ?></a>
+					<a class="bws_plugin_menu_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>"><?php _e( 'FAQ (with images)', 'updater' ); ?></a>
 				</li>
 			</ul>
 			<div class="clear"></div>
@@ -310,149 +312,34 @@ if ( ! function_exists ( 'pdtr_settings_page' ) ) {
 				<p><?php _e( "Here You can make sure that your settings are correct and the email can be delivered.", 'updater' ); ?></p>	
 				<input type="submit" class="button" value="<?php _e( 'Check email sending', 'updater' ) ?>" />		
 				<?php wp_nonce_field( plugin_basename(__FILE__), 'pdtr_nonce_check_mail' ); ?>
-			</form>
-			<div class="pdtr_pro_version_tooltip">				
-				<?php _e( 'This functionality is available in the Pro version of the plugin. For more details, please follow the link', 'updater' ); ?> 
-				<a href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="Updater Pro">Updater Pro</a>	
-			</div>
-			<div class="pdtr_pro_version_content">
-				<table class="form-table pdtr_pro_version">
-					<tbody>						
-						<tr valign="top">
-							<th><?php _e( 'Make backup before updating', 'updater' ); ?></th>
-							<td>
-								<input type="checkbox" disabled value="1" />
-								<input type="button" disabled class="button" value="<?php echo __( 'Test making the backup', 'updater' ); ?>" style="margin-left: 115px; position: absolute;"/>
-							</td>
-						</tr>
-						<tr valign="top" class="pdtr_test_backup_settings">
-							<th><?php _e( 'Backup all folders', 'updater' ); ?></th>
-							<td><input disabled type="checkbox" value="1" /></td>
-						</tr>	
-						<tr valign="top" class="pdtr_test_backup_settings">
-							<th><?php _e( 'Backup all tables in database', 'updater' ); ?></th>
-							<td><input disabled type="checkbox" value="1" /></td>
-						</tr>	
-						<tr valign="top" class="pdtr_test_backup_settings">
-							<th><?php _e( 'Delete test backup after testing', 'updater' ); ?></th>
-							<td><input disabled type="checkbox" value="1" /></td>
-						</tr>	
-						<tr valign="top">
-							<th><?php _e( 'Error logging', 'updater' ); ?></th>
-							<td>
-								<input disabled type="checkbox" value="1" />
-								<p class="pdtr_span">
-									<?php _e( 'If you have errors related to the conflict between sites, the errors will be written to file', 'updater' ); ?> 
-									updater-pro-errors.log 
-									<?php _e( 'in the plugin\'s folder', 'updater' ); ?>
-								</p>
-							</td>	
-						</tr>
-						<tr valign="top">
-							<th><?php _e( 'Add current website to your main site automatically', 'updater' ); ?></th>
-							<th>
-								<input disabled type="text" name="pdtr_main_url" value="" />
-								<p class="pdtr_span"><?php _e( 'Enter the main site URL if You would like to add the current site settings to the Updater Pro table on the main site automatically. (For example: http://example.com)', 'updater' ); ?></p>
-							</th>
-							<td>
-								<input disabled type="submit" class="button" value="<?php echo __( 'Auto add', 'updater' ); ?>" />
-							</td>	
-						</tr>
-					</tbody>
-				</table>
-				<h3><?php _e( 'Here You can see all added websites or add settings for the website, where you\'d like to update plugins and WP core', 'updater' ); ?></h3>
-				<table class="wp-list-table widefat pdtr_pro_version" style="width: auto;">
-					<thead>
-						<tr>
-							<th class="manage-column" scope="col"><?php _e( 'URL *', 'updater' ); ?><br /><p class="pdtr_span"><?php _e( '( For example: http://example.com )', 'updater' ); ?></p>
-							</th>
-							<th class="manage-column" scope="col"><?php _e( 'The path to the folder with plugins *', 'updater' ); ?><br /><p class="pdtr_span"><?php _e( '(Change it if You know that your plugins are stored in another folder)', 'updater' ); ?></p>
-							</th>
-							<th class="manage-column" scope="col"><?php _e( 'Key from the site *', 'updater' ); ?></th>
-							<th class="manage-column" scope="col"><?php _e( 'Description', 'updater' ); ?></th>
-							<th scope="col"><?php _e( 'Delete the site', 'updater' ); ?></th>
-							<th class="manage-column" scope="col"><?php _e( 'Click for testing connection', 'updater' ); ?></th>
-						</tr>
-					</thead>
-					<tbody id="the-list">
-						<tr>										
-							<td><input disabled type="text" value="" /></td>
-							<td><input disabled type="text" value="/wp-content/plugins/" /></td>
-							<td><input disabled type="text" value="" /></td>
-							<td><input disabled type="text" value="" /></td>
-							<td><input disabled type="button" value="<?php _e( 'Remove this site', 'updater' ); ?>" class="button"></td>
-							<td><input disabled class="button" type="button" value="<?php _e( 'Test', 'updater' ); ?>" /></td>	
-						</tr>					
-					</tbody>
-				</table>
-				<p>
-					<input disabled type="submit" class="button-primary" value="<?php _e( 'Save Changes', 'updater' ) ?>" />
-					<input disabled type="button" class="button" value="<?php _e( 'Add a website', 'updater' ); ?>" /> 
-				</p>
-				<p><input disabled type="checkbox" value="1" /> <?php _e( "Export & Import", 'updater' ); ?></p>
-						
-				<h4><?php _e( 'Add settings for the websites via CSV (.csv) file', 'updater' ); ?></h4>					
-				<p><?php _e( "Choose CSV (.csv) file and click 'Upload file'.", 'updater' ); ?></p>			
-				<p>
-					<?php _e( 'Here you can download the example of a CSV file: ', 'updater' ); ?> 
-					<?php _e( 'The example.csv', 'updater' ); ?>
-				</p>
-				<p><?php _e( "The plugin will automatically upload himself to all websites and get all necessary settings. It take a lot of time for processing all sites, so, please, be patient and don't go from the page until You see all results.", 'updater' ); ?></p>					
-				<p>
-					<label for="upload"><?php _e( 'Choose file on Your computer:', 'updater' ); ?></label>
-					<input disabled type="file" size="25" name="import" id="upload">
-					<input disabled type="submit" value="<?php _e( 'Upload file', 'updater' ); ?>" class="button" id="submit" name="submit">
-				</p>
-				<strong><?php _e( 'Upload Updater Pro to the website and get settings', 'updater' ); ?></strong>					
-				<p><?php _e( "The plugin will be uploaded to all websites automatically and get the necessary settings.", 'updater' ); ?></p>
-				<table class="form-table pdtr_pro_version">
-					<tbody>
-						<tr valign="top">
-							<th><?php _e( 'Host:', 'updater' ); ?></th>
-							<td><input disabled type="text" value="" /></td>
-						</tr>
-						<tr valign="top">
-							<th><?php _e( 'FTP User:', 'updater' ); ?></th>
-							<td><input disabled type="text" value="" /></td>
-						</tr>
-						<tr valign="top">
-							<th><?php _e( 'FTP Password:', 'updater' ); ?></th>
-							<td><input disabled type="text" value="" /></td>
-						</tr>
-						<tr valign="top">
-							<th>
-								<?php _e( 'URL:', 'updater' ); ?>
-								<p class="pdtr_span"><?php _e( '(For example: http://example.com)', 'updater' ); ?></p>
-							</th>
-							<td><input disabled type="text" value="" /></td>
-						</tr>
-						<tr valign="top">
-							<th>
-								<?php _e( 'Path to folder "wp-content":', 'updater' ); ?>
-								<p class="pdtr_span"><?php _e( 'If WordPress installed in the root folder, then leave this field blank.', 'updater' ); ?></p>
-							</th>
-							<td><input disabled type="text" value="" /></td>
-						</tr>
-					</tbody>
-				</table>
-				<p><input disabled type="submit" value="<?php _e( 'Add Updater Pro', 'updater' ); ?>" class="button" id="submit" name="submit"></p>
-				<table class="pdtr_settings form-table pdtr_pro_version">
-					<tbody>
-						<tr valign="top">
-							<th><?php _e( 'Export all settings for sites from current site in:', 'updater' ); ?></th>
-							<th><select disabled><option value="csv">CSV file</option></select></th>
-							<td><input disabled type="submit" class="button" value="<?php echo __( 'Export', 'updater' ); ?>" /></td>
-						</tr>
-						<th><?php _e( 'Import all settings using CSV file if you have exported them before', 'updater' ); ?></th>
-						<th>
-							<input disabled type="file" size="26" name="import" id="upload">
-						</th>
-						<td valign="top">
-							<input disabled type="button" class="button" value="<?php echo __( 'Import', 'updater' ); ?>" />
+			</form>			
+			<table class="form-table bws_pro_version">
+				<tbody>						
+					<tr valign="top">
+						<th><?php _e( 'Make backup before updating', 'updater' ); ?></th>
+						<td>
+							<input type="checkbox" disabled value="1" />
+							<input type="button" disabled class="button" value="<?php echo __( 'Test making the backup', 'updater' ); ?>" style="margin-left: 115px;"/>
 						</td>
-					</tbody>
-				</table>
-			</div>
+					</tr>
+					<tr valign="top" class="pdtr_test_backup_settings">
+						<th><?php _e( 'Backup all folders', 'updater' ); ?></th>
+						<td><input disabled type="checkbox" value="1" /></td>
+					</tr>	
+					<tr valign="top" class="pdtr_test_backup_settings">
+						<th><?php _e( 'Backup all tables in database', 'updater' ); ?></th>
+						<td><input disabled type="checkbox" value="1" /></td>
+					</tr>	
+					<tr valign="top" class="pdtr_test_backup_settings">
+						<th><?php _e( 'Delete test backup after testing', 'updater' ); ?></th>
+						<td><input disabled type="checkbox" value="1" /></td>
+					</tr>						
+				</tbody>
+			</table>
+			<div class="bws_pro_version_tooltip">				
+				<?php _e( 'This functionality is available in the Pro version of the plugin. For more details, please follow the link', 'updater' ); ?> 
+				<a href="http://bestwebsoft.com/plugin/updater-pro?k=347ed3784e3d2aeb466e546bfec268c0&pn=84&v=<?php echo $plugin_info["Version"]; ?>" target="_blank" title="Updater Pro">Updater Pro</a>	
+			</div>				
 		</div>
 	<?php } 
 }//end function pdtr_settings_page
@@ -495,6 +382,8 @@ if ( ! function_exists ( 'pdtr_own_page' ) ) {
 	function pdtr_own_page() {
 		global $plugins, $pdtr_options, $wp_version;
 		$core = false;
+
+		$plugin_info = get_plugin_data( __FILE__ );
 
 		if ( 0 < get_option('gmt_offset') ) {
 			$gmt = 'UTC+' . get_option('gmt_offset');
@@ -544,35 +433,33 @@ if ( ! function_exists ( 'pdtr_own_page' ) ) {
 		} ?>
 		<div class="wrap">
 			<div class="icon32 icon32-bws" id="icon-options-general"></div>
-			<h2><?php _e( 'Updater | tools', 'updater' ); ?></h2>
+			<h2><?php _e( 'Updater | Tools', 'updater' ); ?></h2>
 			<div class="error"><p><strong><?php _e( 'We strongly recommend that you backup your website and the WordPress database before updating! We are not responsible for the site work after updates', 'updater' ); ?></strong></p></div>
 			<ul class="subsubsub">
 				<li><a class="current" href="admin.php?page=updater"><?php _e( 'Tools', 'updater' ); ?></a></li> |
-				<li><a href="admin.php?page=updater-options"><?php _e( 'Options', 'updater' ); ?></a></li> |
-				<li>
-					<a class="pdtr_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>"><?php _e( 'User guide', 'updater' ); ?></a>
-				</li> |
-				<li>
-					<a class="pdtr_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>"><?php _e( 'FAQ (with images)', 'updater' ); ?></a>
-				</li>
+				<li><a href="admin.php?page=updater-options"><?php _e( 'Settings', 'updater' ); ?></a></li> |
+				<li><a class="bws_plugin_menu_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>"><?php _e( 'User guide', 'updater' ); ?></a></li> |
+				<li><a class="bws_plugin_menu_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>"><?php _e( 'FAQ (with images)', 'updater' ); ?></a></li>
 			</ul>
 			<div class="clear"></div>
-			<a class="pdtr_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>" style="width: 450px;display: block;">
-				<div class="pdtr_pro_version_content" style="width:450px;margin:0 0 15px;">
-					<p>
-						<?php _e( 'N/A - not installed', 'updater' ); ?><br/>
-						<img class="pdtr_img" src="<?php echo plugins_url( 'images/unlock.png' , __FILE__ );?>" alt=""/> - <?php _e( "the element will be updated", 'updater' ); ?><br/>
-						<img class="pdtr_img" src="<?php echo plugins_url( 'images/lock.png' , __FILE__ );?>" alt=""/> - <?php _e( "the element will not be updated", 'updater' ); ?><br/>
-					</p>					
-					<p>
-						<input disabled type="submit" class="button" value="<?php _e( "Update information", 'updater' ); ?>" /><?php echo ' ' . __( 'Latest update was', 'updater' ) . ' ' . current_time('mysql') . ' ' . $gmt; ?>
-					</p>
-					<p>
-						<input disabled type="checkbox" value="1" />
-						<?php _e( 'Updater Pro will display, check and update all plugins (Not just the active ones)', 'updater' ); ?>
-					</p>
-				</div>
-			</a>
+			<div class="bws_pro_version" style="padding: 0 10px;margin:0 0 15px;">
+				<p>
+					<img class="pdtr_img" src="<?php echo plugins_url( 'images/unlock.png' , __FILE__ );?>" alt=""/> - <?php _e( "the element will be updated", 'updater' ); ?><br/>
+					<img class="pdtr_img" src="<?php echo plugins_url( 'images/lock.png' , __FILE__ );?>" alt=""/> - <?php _e( "the element will not be updated", 'updater' ); ?><br/>
+				</p>					
+				<p>
+					<input disabled type="submit" class="button" value="<?php _e( "Update information", 'updater' ); ?>" /><?php echo ' ' . __( 'Latest update was', 'updater' ) . ' ' . current_time('mysql') . ' ' . $gmt; ?>
+				</p>
+				<p>
+					<input disabled type="checkbox" value="1" />
+					<?php _e( 'Updater Pro will display, check and update all plugins (Not just the active ones)', 'updater' ); ?>
+				</p>
+			</div>
+			<div class="bws_pro_version_tooltip">				
+				<?php _e( 'This functionality is available in the Pro version of the plugin. For more details, please follow the link', 'updater' ); ?> 
+				<a href="http://bestwebsoft.com/plugin/updater-pro?k=347ed3784e3d2aeb466e546bfec268c0&pn=84&v=<?php echo $plugin_info["Version"]; ?>" target="_blank" title="Updater Pro">Updater Pro</a>	
+			</div>	
+			<div class="clear"></div>
 			<form method="post" action="admin.php?page=updater" enctype="multipart/form-data">
 				<table class="wp-list-table widefat pdtr" cellspacing="0">
 					<thead>
@@ -582,65 +469,32 @@ if ( ! function_exists ( 'pdtr_own_page' ) ) {
 								<input type="checkbox">
 								<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>
 							</th>
-							<th class="manage-column pdtr_pro_version">
-								<input disabled type="checkbox">
-								http://website-1.com
-							</th>
-							<th class="manage-column pdtr_pro_version">
-								<input disabled type="checkbox">
-								http://website-2.com
-							</th>
 						</tr>
 					</thead>
 					<tbody id="the-list">
 						<tr>
 							<td class="plugin-title"><strong><?php _e( 'WordPress Version', 'updater' ); ?></strong></td>
 							<?php $message_update = "";
-								$version = $pdtr_core_plugin_list["core"]["current"];
-								if ( isset( $pdtr_core_plugin_list["core"]["new"] ) ) {
-									if ( $version != $pdtr_core_plugin_list["core"]["new"] ) {	
-										$message_update = __( 'Update to', 'updater' ) . ' ' . $pdtr_core_plugin_list["core"]["new"];
-									}
-								} ?>
-								<td class="manage-column" <?php if( "" != $message_update ) echo "style=\"background:#e89b92\""; ?> >
-									<div <?php if ( "" != $message_update ) echo "class=\"update-message\""; ?>>
-										<div class="pdtr_left"><?php echo __( 'Version', 'updater' ) . ' ' . $version; ?></div> 
-										<?php if ( "" != $message_update ) { ?>
-											<div class="pdtr_right">
-												<input type='checkbox' value='1'/>  
-												<strong><?php echo $message_update; ?></strong>
-											</div>
-										<?php } ?>
-									</div>								
-								</td>
-								<td class="manage-column pdtr_pro_version" <?php if( "" != $message_update ) echo "style=\"background:#E1B6B2\""; ?> >
-									<div>
-										<div class="pdtr_left">											
-											<img class="pdtr_img" src="<?php echo plugins_url( 'images/unlock.png' , __FILE__ );?>" alt=""/>
-											<?php echo __( 'Version', 'updater' ) . ' ' . $version; ?>
-										</div> 
-										<?php if ( "" != $message_update ) { ?>
-											<div class="pdtr_right">
-												<input disabled type='checkbox'value='1'/>  
-												<strong><?php echo $message_update; ?></strong>
-											</div>
-										<?php } ?>
-									</div>								
-								</td>
-								<td class="manage-column pdtr_pro_version" <?php if( "" != $message_update ) echo "style=\"background:#E1B6B2\""; ?> >
-									<div>
-										<div class="pdtr_left">
-											<img class="pdtr_img" src="<?php echo plugins_url( 'images/lock.png' , __FILE__ );?>" alt=""/>
-											<?php echo __( 'Version', 'updater' ) . ' ' . $version; ?>
-										</div> 
-										<?php if ( "" != $message_update ) { ?>
-											<div class="pdtr_right">
-												<input disabled type='checkbox' name='checked_core' value='1'/>  
-												<strong><?php echo $message_update; ?></strong>
-											</div>
-										<?php } ?>
-									</div>								
-								</td>
+							$version = $pdtr_core_plugin_list["core"]["current"];
+							if ( isset( $pdtr_core_plugin_list["core"]["new"] ) ) {
+								if ( $version != $pdtr_core_plugin_list["core"]["new"] ) {	
+									$message_update = __( 'Update to', 'updater' ) . ' ' . $pdtr_core_plugin_list["core"]["new"];
+								}
+							} ?>
+							<td class="manage-column" <?php if( "" != $message_update ) echo "style=\"background:#e89b92\""; ?> >
+								<div <?php if ( "" != $message_update ) echo "class=\"update-message\""; ?>>
+									<div class="pdtr_left">
+										<img class="pdtr_img" src="<?php echo plugins_url( 'images/unlock.png' , __FILE__ );?>" alt=""/>
+										<?php echo __( 'Version', 'updater' ) . ' ' . $version; ?>
+									</div> 
+									<?php if ( "" != $message_update ) { ?>
+										<div class="pdtr_right">
+											<input type='checkbox' value='1'/>  
+											<strong><?php echo $message_update; ?></strong>
+										</div>
+									<?php } ?>
+								</div>								
+							</td>								
 						</tr>			
 						<?php if ( empty( $pdtr_core_plugin_list["plg_list"] ) ) { ?>
 							<tr>
@@ -663,7 +517,10 @@ if ( ! function_exists ( 'pdtr_own_page' ) ) {
 									} ?>
 									<td class="manage-column check-column" <?php if( "" != $message_update ) echo "style=\"background:#e89b92\""; ?> >								
 										<div <?php if ( "" != $message_update ) echo "class=\"update-message\""; ?>>
-											<div class="pdtr_left"><?php echo __( 'Version', 'updater' ) . " " . $version; ?></div> 										
+											<div class="pdtr_left">
+												<img class="pdtr_img" src="<?php echo plugins_url( 'images/unlock.png' , __FILE__ );?>" alt=""/>
+												<?php echo __( 'Version', 'updater' ) . " " . $version; ?>
+											</div> 										
 											<?php if ( "" != $message_update ) { ?>
 												<div class="pdtr_right">
 													<input type='checkbox' name='checked_plugin[]' value='<?php echo $plg_key; ?>'/> 
@@ -671,34 +528,7 @@ if ( ! function_exists ( 'pdtr_own_page' ) ) {
 												</div> 
 											<?php } ?>
 										</div>							
-									</td>
-									<td class="manage-column pdtr_pro_version" <?php if( "" != $message_update ) echo "style=\"background:#E1B6B2\""; ?> >								
-										<div>
-											<div class="pdtr_left">
-												<img class="pdtr_img" src="<?php echo plugins_url( 'images/unlock.png' , __FILE__ );?>" alt=""/>
-												<?php echo __( 'Version', 'updater' ) . " " . $version; ?>
-											</div> 										
-											<?php if ( "" != $message_update ) { ?>
-												<div class="pdtr_right">
-													<input disabled type='checkbox' value='<?php echo $plg_key; ?>'/> 
-													<strong><?php echo $message_update; ?></strong>
-												</div> 
-											<?php } ?>
-										</div>							
-									</td>
-									<td class="manage-column pdtr_pro_version" <?php if( "" != $message_update ) echo "style=\"background:#E1B6B2\""; ?> >								
-										<div>
-											<div class="pdtr_left">
-												<img class="pdtr_img" src="<?php echo plugins_url( 'images/lock.png' , __FILE__ );?>" alt=""/>
-												<?php echo __( 'Version', 'updater' ) . " " . $version; ?>
-											</div> 										
-											<?php if ( "" != $message_update ) { ?>
-												<div class="pdtr_right">													
-													<strong><?php echo $message_update; ?></strong>
-												</div> 
-											<?php } ?>
-										</div>							
-									</td>
+									</td>									
 								</tr>	
 							<?php }
 						} ?>
@@ -1002,6 +832,41 @@ if ( ! function_exists ( 'pdtr_auto_function' ) ) {
 	}
 }// end function pdtr_auto_function
 
+if ( ! function_exists ( 'pdtr_plugin_banner' ) ) {
+	function pdtr_plugin_banner() {
+		global $hook_suffix;	
+		$plugin_info = get_plugin_data( __FILE__ );		
+		if ( $hook_suffix == 'plugins.php' ) {              
+	       	echo '<div class="updated" style="padding: 0; margin: 0; border: none; background: none;">
+	       		<script type="text/javascript" src="' . plugins_url( 'js/c_o_o_k_i_e.js', __FILE__ ).'"></script>
+				<script type="text/javascript">		
+					(function($){
+						$(document).ready(function(){		
+							var hide_message = $.cookie("pdtr_hide_banner_on_plugin_page");
+							if ( hide_message == "true") {
+								$(".pdtr_message").css("display", "none");
+							};
+							$(".pdtr_close_icon").click(function() {
+								$(".pdtr_message").css("display", "none");
+								$.cookie( "pdtr_hide_banner_on_plugin_page", "true", { expires: 32 } );
+							});	
+						});
+					})(jQuery);				
+				</script>					                      
+				<div class="pdtr_message">
+					<a class="button pdtr_button" target="_blank" href="http://bestwebsoft.com/plugin/updater-pro?k=0b6882b0c99c2776d06c375dc22b5869&pn=84&v=' . $plugin_info["Version"] . '">Learn More</a>				
+					<div class="pdtr_text">
+						It’s time to upgrade your <strong>Updater plugin</strong> to <strong>PRO</strong> version!<br />
+						<span>Extend standard plugin functionality with new great options.</span>
+					</div> 					
+					<img class="pdtr_close_icon" title="" src="' . plugins_url( 'images/close_banner.png', __FILE__ ) . '" alt=""/>
+					<img class="pdtr_icon" title="" src="' . plugins_url( 'images/banner.png', __FILE__ ) . '" alt=""/>	
+				</div>  
+			</div>';      
+		}
+	}
+}
+
 // Function for delete hook and options 
 if ( ! function_exists ( 'pdtr_deactivation' ) ) {
 	function pdtr_deactivation() {
@@ -1030,6 +895,8 @@ add_action( 'wp_enqueue_scripts', 'pdtr_admin_head' );
 
 // Function that update all plugins and WP core in auto mode.
 add_action( 'pdtr_auto_hook', 'pdtr_auto_function' );
+
+add_action('admin_notices', 'pdtr_plugin_banner');
 
 // when deactivate plugin
 register_deactivation_hook( __FILE__, 'pdtr_deactivation' );
