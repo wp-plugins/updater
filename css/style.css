@@ -3,7 +3,7 @@ Plugin Name: Updater
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: This plugin allows you to update plugins and WP core in auto or manual mode.
 Author: BestWebSoft
-Version: 1.12
+Version: 1.13
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -13,7 +13,8 @@ License: GPLv2 or later
 .admin-color-classic #adminmenu #toplevel_page_bws_plugins div.wp-menu-image {
 	background: url("../images/icon_16_b.png") no-repeat scroll center center transparent;
 }
-#adminmenu #toplevel_page_bws_plugins:hover div.wp-menu-image, #adminmenu #toplevel_page_bws_plugins.wp-has-current-submenu div.wp-menu-image {
+#adminmenu #toplevel_page_bws_plugins:hover div.wp-menu-image,
+#adminmenu #toplevel_page_bws_plugins.wp-has-current-submenu div.wp-menu-image {
 	background: url("../images/icon_16_c.png") no-repeat scroll center center transparent;
 }	
 .wrap #icon-options-general.icon32-bws {
@@ -23,7 +24,7 @@ License: GPLv2 or later
 	background: url("../images/icon_36_b.png") no-repeat scroll left top transparent;
 }
 #toplevel_page_bws_plugins .wp-submenu .wp-first-item {
-	display:none;
+	display: none;
 }
 .bws_system_info_meta_box {
     width: 850px;
