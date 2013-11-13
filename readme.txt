@@ -4,7 +4,7 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10
 Tags: plugin, core, wordpress, update
 Requires at least: 3.0
 Tested up to: 3.7.1
-Stable tag: 1.13
+Stable tag: 1.14
 License: GPLv2 or later
 
 This plugin allows you to update plugins and WordPress core.
@@ -80,6 +80,9 @@ It's impossible. The number of hours should be integer and it should not include
 
 == Changelog ==
 
+= V1.14 - 13.11.2013 =
+* Bugfix : We fixed the bug of syntax error.
+
 = V1.13 - 12.11.2013 =
 * NEW : Add checking installed wordpress version.
 * NEW : The Serbian language file is added to the plugin.
@@ -133,6 +136,9 @@ It's impossible. The number of hours should be integer and it should not include
 * NEW : Css-style was added.
 
 == Upgrade Notice ==
+
+= V1.14 =
+We fixed the bug of syntax error.
 
 = V1.13 =
 Add checking installed wordpress version. The Serbian language file is added to the plugin. We updated all functionality for wordpress 3.7.1. Activation of radio button or checkbox by clicking on its label.

@@ -4,7 +4,7 @@ Plugin Name: Updater
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: This plugin allows you to update plugins and WP core in auto or manual mode.
 Author: BestWebSoft
-Version: 1.13
+Version: 1.14
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -787,7 +787,7 @@ if ( ! function_exists ( 'pdtr_plugin_banner' ) ) {
 				<div class="pdtr_message">
 					<a class="button pdtr_button" target="_blank" href="http://bestwebsoft.com/plugin/updater-pro?k=0b6882b0c99c2776d06c375dc22b5869&pn=84&v=' . $plugin_info["Version"] . '">' . __( 'Learn More', 'updater' ) . '</a>
 					<div class="pdtr_text">' .
-						__ ( 'It’s time to upgrade your', 'updater' ) . '<strong>' . __( 'Updater plugin', 'updater' ) . '</strong> ' . __( 'to', ) . ' <strong>PRO</strong> ' . __( 'version!', 'updater' ) . '<br />
+						__( 'It’s time to upgrade your', 'updater' ) . ' <strong>' . __( 'Updater plugin', 'updater' ) . '</strong> ' . __( 'to', 'updater' ) . ' <strong>PRO</strong> ' . __( 'version!', 'updater' ) . '<br />
 						<span>' . __( 'Extend standard plugin functionality with new great options.', 'updater' ) . '</span>
 					</div>
 					<img class="pdtr_close_icon" title="" src="' . plugins_url( 'images/close_banner.png', __FILE__ ) . '" alt=""/>
