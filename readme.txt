@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10&product_id=13
 Tags: plugin, core, wordpress, update
 Requires at least: 3.0
-Tested up to: 3.7.1
-Stable tag: 1.14
+Tested up to: 3.8
+Stable tag: 1.15
 License: GPLv2 or later
 
 This plugin allows you to update plugins and WordPress core.
@@ -15,6 +15,7 @@ This plugin updates WordPress core and the plugins to the recent versions. You c
 There is also a premium version of the plugin with more useful features available.
 
 <a href="http://wordpress.org/plugins/updater/faq/" target="_blank">FAQ</a>
+
 <a href="http://support.bestwebsoft.com" target="_blank">Support</a>
 
 <a href="http://bestwebsoft.com/plugin/updater-pro?k=49e226d45dc4d3465a079fa62317eab2" target="_blank" title="Updater Pro">Upgrade to Pro Version</a>
@@ -80,6 +81,10 @@ It's impossible. The number of hours should be integer and it should not include
 
 == Changelog ==
 
+= V1.15 - 16.12.2013 =
+* Update : We updated all functionality for wordpress 3.8.
+* NEW : A notice when changing settings on the plugin's settings page was added. 
+
 = V1.14 - 13.11.2013 =
 * Bugfix : We fixed the bug of syntax error.
 
@@ -136,6 +141,9 @@ It's impossible. The number of hours should be integer and it should not include
 * NEW : Css-style was added.
 
 == Upgrade Notice ==
+
+= V1.15 =
+We updated all functionality for wordpress 3.8. A notice when changing settings on the plugin's settings page was added. 
 
 = V1.14 =
 We fixed the bug of syntax error.

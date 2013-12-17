@@ -7,17 +7,27 @@ Version: 1.15
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
-#adminmenu #toplevel_page_bws_plugins div.wp-menu-image,
-.admin-color-classic #adminmenu #toplevel_page_bws_plugins div.wp-menu-image,
+#adminmenu #toplevel_page_bws_plugins div.wp-menu-image {
+	background: url("../images/icon_16.png") no-repeat scroll center center transparent;
+}
+.admin-color-classic #adminmenu #toplevel_page_bws_plugins div.wp-menu-image {
+	background: url("../images/icon_16_b.png") no-repeat scroll center center transparent;
+}
 #adminmenu #toplevel_page_bws_plugins:hover div.wp-menu-image,
 #adminmenu #toplevel_page_bws_plugins.wp-has-current-submenu div.wp-menu-image {
-    background: url("../images/icon_16_single.png") no-repeat scroll center center transparent;
+	background: url("../images/icon_16_c.png") no-repeat scroll center center transparent;
+}	
+.wrap #icon-options-general.icon32-bws {
+	background: url("../images/icon_36.png") no-repeat scroll left top transparent;
+}
+.admin-color-classic .wrap #icon-options-general.icon32-bws {
+	background: url("../images/icon_36_b.png") no-repeat scroll left top transparent;
 }
 #toplevel_page_bws_plugins .wp-submenu .wp-first-item {
-    display:none;
+	display: none;
 }
 .bws_system_info_meta_box {
-    max-width: 850px;
+    width: 850px;
 }
 .bws_system_info_meta_box .hndle {
     cursor: pointer !important;
@@ -25,7 +35,7 @@ License: GPLv2 or later
 .bws_system_info {
     float: left;
     margin-right: 10px;
-    max-width: 400px;
+    width: 400px;
 }
 .bws_system_info th {
     padding: 10px 0;
@@ -154,12 +164,15 @@ a.bws_plugin_menu_pro_version,
 }
 /* banner on the plugins page */
 .pdtr_message {
-    min-width: 800px;
-    border: 1px solid #d4d4d4;
-    margin: 12px 0;
-    background: #fff;
-    position: relative;
-    overflow: hidden;
+    min-width:800px;
+    border:1px solid #d4d4d4;
+    margin:12px 0;
+    background:#ececec;
+    -moz-border-radius:3px;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    position:relative;
+    overflow:hidden
 }
 .pdtr_message .pdtr_text {
     color:#000;
