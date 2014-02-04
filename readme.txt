@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10&product_id=13
 Tags: plugin, core, wordpress, update
 Requires at least: 3.0
-Tested up to: 3.8
-Stable tag: 1.15
+Tested up to: 3.8.1
+Stable tag: 1.16
 License: GPLv2 or later
 
 This plugin allows you to update plugins and WordPress core.
@@ -74,12 +74,23 @@ Updater does it every 12 hours by default. In auto mode Updater updates plugins 
 
 It's impossible. The number of hours should be integer and it should not include more than 5 digits.
 
+= I have some problems with the plugin's work. What Information should I provide to receive proper support? =
+
+Please make sure that the problem hasn't been discussed yet on our forum (<a href="http://support.bestwebsoft.com" target="_blank">http://support.bestwebsoft.com</a>). If no, please provide the following data along with your problem's description:
+1. the link to the page where the problem occurs
+2. the name of the plugin and its version. If you are using a pro version - your order number.
+3. the version of your WordPress installation
+4. copy and paste into the message your system status report. Please read more here: <a href="http://bestwebsoft.com/wp-content/uploads/manual/wp_plugin/general/System_Status.pdf" target="_blank">System_Status.pdf</a>
+
 == Screenshots ==
 
 1. Updater Settings page.
 2. Updater page in the BWS admin area.
 
 == Changelog ==
+
+= V1.16 - 04.02.2014 =
+* Update : We updated all functionality for wordpress 3.8.1.
 
 = V1.15 - 16.12.2013 =
 * Update : We updated all functionality for wordpress 3.8.
@@ -141,6 +152,9 @@ It's impossible. The number of hours should be integer and it should not include
 * NEW : Css-style was added.
 
 == Upgrade Notice ==
+
+= V1.16 =
+We updated all functionality for wordpress 3.8.1.
 
 = V1.15 =
 We updated all functionality for wordpress 3.8. A notice when changing settings on the plugin's settings page was added. 

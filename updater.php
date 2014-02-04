@@ -4,13 +4,13 @@ Plugin Name: Updater
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: This plugin allows you to update plugins and WP core in auto or manual mode.
 Author: BestWebSoft
-Version: 1.15
+Version: 1.16
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
 
 /*
-	© Copyright 2013  BestWebSoft  ( http://support.bestwebsoft.com )
+	© Copyright 2014  BestWebSoft  ( http://support.bestwebsoft.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as
@@ -34,6 +34,7 @@ if( ! function_exists( 'pdtr_add_admin_menu' ) ) {
 		add_menu_page( 'BWS Plugins', 'BWS Plugins', 'manage_options', 'bws_plugins', 'bws_add_menu_render', plugins_url( 'images/px.png', __FILE__ ), 1001 );
 		add_submenu_page( 'bws_plugins', __( 'Updater','updater' ), __( 'Updater' , 'updater' ), 'manage_options', 'updater', 'pdtr_own_page' );
 		add_submenu_page( 'updater', __( 'Updater', 'updater' ), __( 'Updater', 'updater' ), 'manage_options', 'updater-options', 'pdtr_settings_page' );
+		add_submenu_page( 'updater', __( 'Updater', 'updater' ), __( 'Updater', 'updater' ), 'manage_options', 'updater-go-pro', 'pdtr_go_pro_page' );
 		/* Call register settings function */
 		add_action( 'admin_init', 'pdtr_register_settings' );
 	}
@@ -123,7 +124,6 @@ if ( ! function_exists( 'pdtr_schedules' ) ) {
 if ( ! function_exists ( 'pdtr_init' ) ) {
 	function pdtr_init() {
 		load_plugin_textdomain( 'updater', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-		load_plugin_textdomain( 'bestwebsoft', false, dirname( plugin_basename( __FILE__ ) ) . '/bws_menu/languages/' );
 	}
 }
 
@@ -230,22 +230,18 @@ if ( ! function_exists ( 'pdtr_settings_page' ) ) {
 		} /* Display form on the setting page */ ?> 
 		<div class="wrap">
 			<div class="icon32 icon32-bws" id="icon-options-general"></div>
-			<h2><?php _e('Updater | Settings', 'updater' ); ?></h2>
+			<h2><?php _e( 'Updater | Settings', 'updater' ); ?></h2>
+			<h2 class="nav-tab-wrapper">
+				<a class="nav-tab<?php if ( isset( $_GET['page'] ) && 'updater' == $_GET['page'] ) echo ' nav-tab-active'; ?>" href="admin.php?page=updater"><?php _e( 'Tools', 'updater' ); ?></a>
+				<a class="nav-tab<?php if ( isset( $_GET['page'] ) && 'updater-options' == $_GET['page'] ) echo ' nav-tab-active'; ?>" href="admin.php?page=updater-options"><?php _e( 'Settings', 'updater' ); ?></a>
+				<a class="bws_plugin_menu_pro_version nav-tab" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>"><?php _e( 'User guide', 'updater' ); ?></a>
+				<a class="bws_plugin_menu_pro_version nav-tab" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>"><?php _e( 'FAQ (with images)', 'updater' ); ?></a>
+				<a class="nav-tab bws_go_pro_tab<?php if ( isset( $_GET['page'] ) && 'updater-go-pro' == $_GET['page'] ) echo ' nav-tab-active'; ?>" href="admin.php?page=updater-go-pro"><?php _e( 'Go PRO', 'updater' ); ?></a>
+			</h2>
 			<div class="error"><p><strong><?php _e( 'We strongly recommend that you backup your website and the WordPress database before updating! We are not responsible for the site work after updates', 'updater' ); ?></strong></p></div>
 			<div class="updated fade" <?php if ( ! ( isset( $_REQUEST["pdtr_form_submit"] ) || isset( $_REQUEST["pdtr_form_check_mail"] ) ) || "" != $options_error || "" == $message ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
 			<div class="error" <?php if ( "" == $options_error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $options_error; ?></strong></p></div>
 			<div id="pdtr_settings_notice" class="updated fade" style="display:none"><p><strong><?php _e( "Notice:", 'updater' ); ?></strong> <?php _e( "The plugin's settings have been changed. In order to save them please don't forget to click the 'Save Changes' button.", 'updater' ); ?></p></div>
-			<ul class="subsubsub">
-				<li><a href="admin.php?page=updater"><?php _e( 'Tools', 'updater' ); ?></a></li> |
-				<li><a class="current" href="admin.php?page=updater-options"><?php _e( 'Settings', 'updater' ); ?></a></li> |
-				<li>
-					<a class="bws_plugin_menu_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>"><?php _e( 'User guide', 'updater' ); ?></a>
-				</li> |
-				<li>
-					<a class="bws_plugin_menu_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>"><?php _e( 'FAQ (with images)', 'updater' ); ?></a>
-				</li>
-			</ul>
-			<div class="clear"></div>
 			<form id="pdtr_settings_form" method="post" action="admin.php?page=updater-options">
 			  	<table class="pdtr_settings form-table">
 					<tbody>
@@ -337,7 +333,7 @@ if ( ! function_exists ( 'pdtr_settings_page' ) ) {
 					</tr>
 					<tr valign="top">
 						<th scope="row" colspan="2">
-							* <?php _e( 'If you upgrade to Pro version all your settings and galleries will be saved.', 'updater' ); ?>
+							* <?php _e( 'If you upgrade to Pro version all your settings will be saved.', 'updater' ); ?>
 						</th>
 					</tr>
 					<tr class="bws_pro_version_tooltip">
@@ -353,17 +349,18 @@ if ( ! function_exists ( 'pdtr_settings_page' ) ) {
 			<div class="clear"></div>
 			<div class="bws-plugin-reviews">
 				<div class="bws-plugin-reviews-rate">
-					<?php _e( 'If you enjoy our plugin, please give it 5 stars on WordPress', 'updater' ); ?>:<br/>
+					<?php _e( 'If you enjoy our plugin, please give it 5 stars on WordPress', 'updater' ); ?>: 
 					<a href="http://wordpress.org/support/view/plugin-reviews/updater/" target="_blank" title="Updater reviews"><?php _e( 'Rate the plugin', 'updater' ); ?></a><br/>
 				</div>
 				<div class="bws-plugin-reviews-support">
-					<?php _e( 'If there is something wrong about it, please contact us', 'updater' ); ?>:<br/>
+					<?php _e( 'If there is something wrong about it, please contact us', 'updater' ); ?>: 
 					<a href="http://support.bestwebsoft.com">http://support.bestwebsoft.com</a>
 				</div>
 			</div>
 		</div>
 	<?php }
-}/* End function pdtr_settings_page */
+}
+/* End function pdtr_settings_page */
 
 /* Function for processing the site */
 if ( ! function_exists ( 'pdtr_processing_site' ) ) {
@@ -443,14 +440,14 @@ if ( ! function_exists ( 'pdtr_own_page' ) ) {
 		<div class="wrap">
 			<div class="icon32 icon32-bws" id="icon-options-general"></div>
 			<h2><?php _e( 'Updater | Tools', 'updater' ); ?></h2>
+			<h2 class="nav-tab-wrapper">
+				<a class="nav-tab<?php if ( isset( $_GET['page'] ) && 'updater' == $_GET['page'] ) echo ' nav-tab-active'; ?>" href="admin.php?page=updater"><?php _e( 'Tools', 'updater' ); ?></a>
+				<a class="nav-tab<?php if ( isset( $_GET['page'] ) && 'updater-options' == $_GET['page'] ) echo ' nav-tab-active'; ?>" href="admin.php?page=updater-options"><?php _e( 'Settings', 'updater' ); ?></a>
+				<a class="bws_plugin_menu_pro_version nav-tab" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>"><?php _e( 'User guide', 'updater' ); ?></a>
+				<a class="bws_plugin_menu_pro_version nav-tab" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>"><?php _e( 'FAQ (with images)', 'updater' ); ?></a>
+				<a class="nav-tab bws_go_pro_tab<?php if ( isset( $_GET['page'] ) && 'updater-go-pro' == $_GET['page'] ) echo ' nav-tab-active'; ?>" href="admin.php?page=updater-go-pro"><?php _e( 'Go PRO', 'updater' ); ?></a>
+			</h2>
 			<div class="error"><p><strong><?php _e( 'We strongly recommend that you backup your website and the WordPress database before updating! We are not responsible for the site work after updates', 'updater' ); ?></strong></p></div>
-			<ul class="subsubsub">
-				<li><a class="current" href="admin.php?page=updater"><?php _e( 'Tools', 'updater' ); ?></a></li> |
-				<li><a href="admin.php?page=updater-options"><?php _e( 'Settings', 'updater' ); ?></a></li> |
-				<li><a class="bws_plugin_menu_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>"><?php _e( 'User guide', 'updater' ); ?></a></li> |
-				<li><a class="bws_plugin_menu_pro_version" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>"><?php _e( 'FAQ (with images)', 'updater' ); ?></a></li>
-			</ul>
-			<div class="clear"></div>			
 			<div class="bws_pro_version">
 				<p>
 					<img class="pdtr_img" src="<?php echo plugins_url( 'images/unlock.png' , __FILE__ );?>" alt=""/> - <?php _e( "the element will be updated", 'updater' ); ?><br/>
@@ -463,7 +460,7 @@ if ( ! function_exists ( 'pdtr_own_page' ) ) {
 					<input disabled type="checkbox" value="1" />
 					<?php _e( 'Updater Pro will display, check and update all plugins (Not just the active ones)', 'updater' ); ?>
 				</p>
-				<p>* <?php _e( 'If you upgrade to Pro version all your settings and galleries will be saved.', 'updater' ); ?></p>
+				<p>* <?php _e( 'If you upgrade to Pro version all your settings will be saved.', 'updater' ); ?></p>
 				<div class="bws_pro_version_tooltip">
 					<?php _e( 'This functionality is available in the Pro version of the plugin. For more details, please follow the link', 'updater' ); ?>
 					<a href="http://bestwebsoft.com/plugin/updater-pro/?k=347ed3784e3d2aeb466e546bfec268c0&pn=84&v=<?php echo $plugin_info["Version"]; ?>&wp_v=<?php echo $wp_version; ?>" target="_blank" title="Updater Pro">
@@ -556,17 +553,207 @@ if ( ! function_exists ( 'pdtr_own_page' ) ) {
 			</form>
 			<div class="bws-plugin-reviews">
 				<div class="bws-plugin-reviews-rate">
-					<?php _e( 'If you enjoy our plugin, please give it 5 stars on WordPress', 'updater' ); ?>:<br/>
+					<?php _e( 'If you enjoy our plugin, please give it 5 stars on WordPress', 'updater' ); ?>: 
 					<a href="http://wordpress.org/support/view/plugin-reviews/updater/" target="_blank" title="Updater reviews"><?php _e( 'Rate the plugin', 'updater' ); ?></a><br/>
 				</div>
 				<div class="bws-plugin-reviews-support">
-					<?php _e( 'If there is something wrong about it, please contact us', 'updater' ); ?>:<br/>
+					<?php _e( 'If there is something wrong about it, please contact us', 'updater' ); ?>: 
 					<a href="http://support.bestwebsoft.com">http://support.bestwebsoft.com</a>
 				</div>
 			</div>
 		</div>
 	<?php }
-}/* End function pdtr_own_page */
+}
+/* End function pdtr_own_page */
+
+/* Function for display updater settings page in the BWS admin area */
+if ( ! function_exists ( 'pdtr_go_pro_page' ) ) {
+	function pdtr_go_pro_page() {
+		global $wp_version, $wpmu;
+		$error	=	"";
+		$message = "";
+		$plugin_info = get_plugin_data( __FILE__ );		
+
+		/* GO PRO */
+		$bws_license_key = ( isset( $_POST['bws_license_key'] ) ) ? trim( $_POST['bws_license_key'] ) : "";
+		$bstwbsftwppdtplgns_options_defaults = array();
+		if ( 1 == $wpmu ) {
+			if ( !get_site_option( 'bstwbsftwppdtplgns_options' ) )
+				add_site_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options_defaults, '', 'yes' );
+			$bstwbsftwppdtplgns_options = get_site_option( 'bstwbsftwppdtplgns_options' );
+		} else {
+			if ( !get_option( 'bstwbsftwppdtplgns_options' ) )
+				add_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options_defaults, '', 'yes' );
+			$bstwbsftwppdtplgns_options = get_option( 'bstwbsftwppdtplgns_options' );
+		}
+
+		if ( isset( $_POST['bws_license_submit'] ) && check_admin_referer( plugin_basename( __FILE__ ), 'bws_license_nonce_name' ) ) {
+			if ( '' != $bws_license_key ) { 
+				if ( strlen( $bws_license_key ) != 18 ) {
+					$error = __( "Wrong license key", 'updater' );
+				} else {
+					$bws_license_plugin = trim( $_POST['bws_license_plugin'] );	
+					if ( isset( $bstwbsftwppdtplgns_options['go_pro'][ $bws_license_plugin ]['count'] ) && $bstwbsftwppdtplgns_options['go_pro'][ $bws_license_plugin ]['time'] < ( time() + (24 * 60 * 60) ) ) {
+						$bstwbsftwppdtplgns_options['go_pro'][ $bws_license_plugin ]['count'] = $bstwbsftwppdtplgns_options['go_pro'][ $bws_license_plugin ]['count'] + 1;
+					} else {
+						$bstwbsftwppdtplgns_options['go_pro'][ $bws_license_plugin ]['count'] = 1;
+						$bstwbsftwppdtplgns_options['go_pro'][ $bws_license_plugin ]['time'] = time();
+					}	
+
+					/* download Pro */
+					if ( !function_exists( 'get_plugins' ) )
+						require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+					if ( ! function_exists( 'is_plugin_active_for_network' ) )
+						require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
+					$all_plugins = get_plugins();
+					$active_plugins = get_option( 'active_plugins' );
+					
+					if ( ! array_key_exists( $bws_license_plugin, $all_plugins ) ) {
+						$current = get_site_transient( 'update_plugins' );
+						if ( is_array( $all_plugins ) && !empty( $all_plugins ) && isset( $current ) && is_array( $current->response ) ) {
+							$to_send = array();
+							$to_send["plugins"][ $bws_license_plugin ] = array();
+							$to_send["plugins"][ $bws_license_plugin ]["bws_license_key"] = $bws_license_key;
+							$to_send["plugins"][ $bws_license_plugin ]["bws_illegal_client"] = true;
+							$options = array(
+								'timeout' => ( ( defined('DOING_CRON') && DOING_CRON ) ? 30 : 3 ),
+								'body' => array( 'plugins' => serialize( $to_send ) ),
+								'user-agent' => 'WordPress/' . $wp_version . '; ' . get_bloginfo( 'url' ) );
+							$raw_response = wp_remote_post( 'http://bestwebsoft.com/wp-content/plugins/paid-products/plugins/update-check/1.0/', $options );
+
+							if ( is_wp_error( $raw_response ) || 200 != wp_remote_retrieve_response_code( $raw_response ) ) {
+								$error = __( "Something went wrong. Try again later. If the error will appear again, please, contact us <a href=http://support.bestwebsoft.com>BestWebSoft</a>. We are sorry for inconvenience.", 'updater' );
+							} else {
+								$response = maybe_unserialize( wp_remote_retrieve_body( $raw_response ) );
+								if ( is_array( $response ) && !empty( $response ) ) {
+									foreach ( $response as $key => $value ) {
+										if ( "wrong_license_key" == $value->package ) {
+											$error = __( "Wrong license key", 'updater' ); 
+										} elseif ( "wrong_domain" == $value->package ) {
+											$error = __( "This license key is bind to another site", 'updater' );
+										} elseif ( "you_are_banned" == $value->package ) {
+											$error = __( "Unfortunately, you have exceeded the number of available tries per day. Please, upload the plugin manually.", 'updater' );
+										} elseif ( "time_out" == $value->package ) {
+											$error = __( "Unfortunately, Your license has expired. To continue getting top-priority support and plugin updates you should extend it in your", 'updater_pro' ) . ' <a href="http://bestwebsoft.com/wp-admin/admin.php?page=bws_plugins_client_area">Client area</a>';
+										}
+									}
+									if ( '' == $error ) {
+										global $wpmu;																					
+										$bstwbsftwppdtplgns_options[ $bws_license_plugin ] = $bws_license_key;
+
+										$url = 'http://bestwebsoft.com/wp-content/plugins/paid-products/plugins/downloads/?bws_first_download=' . $bws_license_plugin . '&bws_license_key=' . $bws_license_key . '&download_from=5';
+										$uploadDir = wp_upload_dir();
+										$zip_name = explode( '/', $bws_license_plugin );
+									    if ( file_put_contents( $uploadDir["path"] . "/" . $zip_name[0] . ".zip", file_get_contents( $url ) ) ) {
+									    	@chmod( $uploadDir["path"] . "/" . $zip_name[0] . ".zip", octdec( 755 ) );
+									    	if ( class_exists( 'ZipArchive' ) ) {
+												$zip = new ZipArchive();
+												if ( $zip->open( $uploadDir["path"] . "/" . $zip_name[0] . ".zip" ) === TRUE ) {
+													$zip->extractTo( WP_PLUGIN_DIR );
+													$zip->close();
+												} else {
+													$error = __( "Failed to open the zip archive. Please, upload the plugin manually", 'updater' );
+												}								
+											} elseif ( class_exists( 'Phar' ) ) {
+												$phar = new PharData( $uploadDir["path"] . "/" . $zip_name[0] . ".zip" );
+												$phar->extractTo( WP_PLUGIN_DIR );
+											} else {
+												$error = __( "Your server does not support either ZipArchive or Phar. Please, upload the plugin manually", 'updater' );
+											}
+											@unlink( $uploadDir["path"] . "/" . $zip_name[0] . ".zip" );										    
+										} else {
+											$error = __( "Failed to download the zip archive. Please, upload the plugin manually", 'updater' );
+										}
+
+										/* activate Pro */
+										if ( file_exists( WP_PLUGIN_DIR . '/' . $zip_name[0] ) ) {			
+											array_push( $active_plugins, $bws_license_plugin );
+											update_option( 'active_plugins', $active_plugins );
+											$pro_plugin_is_activated = true;
+										} elseif ( '' == $error ) {
+											$error = __( "Failed to download the zip archive. Please, upload the plugin manually", 'updater' );
+										}																				
+									}
+								} else {
+									$error = __( "Something went wrong. Try again later or upload the plugin manually. We are sorry for inconvenience.", 'updater' ); 
+				 				}
+				 			}
+			 			}
+					} else {
+						/* activate Pro */
+						if ( ! ( in_array( $bws_license_plugin, $active_plugins ) || is_plugin_active_for_network( $bws_license_plugin ) ) ) {			
+							array_push( $active_plugins, $bws_license_plugin );
+							update_option( 'active_plugins', $active_plugins );
+							$pro_plugin_is_activated = true;
+						}						
+					}
+					update_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
+		 		}
+		 	} else {
+	 			$error = __( "Please, enter Your license key", 'updater' );
+	 		}
+	 	}
+		/* Display form on the setting page */ ?> 
+		<div class="wrap">
+			<div class="icon32 icon32-bws" id="icon-options-general"></div>
+			<h2><?php _e( 'Updater | Go PRO', 'updater' ); ?></h2>
+			<h2 class="nav-tab-wrapper">
+				<a class="nav-tab<?php if ( isset( $_GET['page'] ) && 'updater' == $_GET['page'] ) echo ' nav-tab-active'; ?>" href="admin.php?page=updater"><?php _e( 'Tools', 'updater' ); ?></a>
+				<a class="nav-tab<?php if ( isset( $_GET['page'] ) && 'updater-options' == $_GET['page'] ) echo ' nav-tab-active'; ?>" href="admin.php?page=updater-options"><?php _e( 'Settings', 'updater' ); ?></a>
+				<a class="bws_plugin_menu_pro_version nav-tab" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>"><?php _e( 'User guide', 'updater' ); ?></a>
+				<a class="bws_plugin_menu_pro_version nav-tab" href="http://bestwebsoft.com/plugin/updater-pro/" target="_blank" title="<?php _e( 'This setting is available in Pro version', 'updater' ); ?>"><?php _e( 'FAQ (with images)', 'updater' ); ?></a>
+				<a class="nav-tab bws_go_pro_tab<?php if ( isset( $_GET['page'] ) && 'updater-go-pro' == $_GET['page'] ) echo ' nav-tab-active'; ?>" href="admin.php?page=updater-go-pro"><?php _e( 'Go PRO', 'updater' ); ?></a>
+			</h2>
+			<div class="updated fade" <?php if ( ! isset( $_REQUEST["bws_license_submit"] ) || "" != $error || "" == $message ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
+			<div class="error" <?php if ( "" == $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $error; ?></strong></p></div>
+			<?php if ( isset( $pro_plugin_is_activated ) && true === $pro_plugin_is_activated ) { ?>
+				<script type="text/javascript">
+					window.setTimeout( function() {
+					    window.location.href = 'admin.php?page=updater-pro';
+					}, 5000 );
+				</script>				
+				<p><?php _e( "Congratulations! The PRO version of the plugin is successfully download and activated.", 'updater' ); ?></p>
+				<p>
+					<?php _e( "Please, go to", 'updater' ); ?> <a href="admin.php?page=updater-pro"><?php _e( 'the setting page', 'updater' ); ?></a> 
+					(<?php _e( "You will be redirected automatically in 5 seconds.", 'updater' ); ?>)
+				</p>
+			<?php } else { ?>
+				<form method="post" action="admin.php?page=updater-go-pro">
+					<p>
+						<?php _e( 'You can download and activate', 'updater' ); ?> 
+						<a href="http://bestwebsoft.com/plugin/updater-pro/updater-pro/?k=347ed3784e3d2aeb466e546bfec268c0&pn=84&v=<?php echo $plugin_info["Version"]; ?>&wp_v=<?php echo $wp_version; ?>" target="_blank" title="Updater Pro">PRO</a> 
+						<?php _e( 'version of this plugin by entering Your license key.', 'updater' ); ?><br />
+						<span style="color: #888888;font-size: 10px;">
+							<?php _e( 'You can find your license key on your personal page Client area, by clicking on the link', 'updater' ); ?> 
+							<a href="http://bestwebsoft.com/wp-login.php">http://bestwebsoft.com/wp-login.php</a> 
+							<?php _e( '(your username is the email you specify when purchasing the product).', 'updater' ); ?>
+						</span>
+					</p>
+					<?php if ( isset( $bstwbsftwppdtplgns_options['go_pro']['updater-pro/updater_pro.php']['count'] ) &&
+						'5' < $bstwbsftwppdtplgns_options['go_pro']['updater-pro/updater_pro.php']['count'] &&
+						$bstwbsftwppdtplgns_options['go_pro']['updater-pro/updater_pro.php']['time'] < ( time() + ( 24 * 60 * 60 ) ) ) { ?>
+						<p>
+							<input disabled="disabled" type="text" name="bws_license_key" value="<?php echo $bws_license_key; ?>" />
+							<input disabled="disabled" type="submit" class="button-primary" value="<?php _e( 'Go!', 'updater' ); ?>" />
+						</p>
+						<p>
+							<?php _e( "Unfortunately, you have exceeded the number of available tries per day. Please, upload the plugin manually.", 'updater' ); ?>
+						</p>
+					<?php } else { ?>
+						<p>
+							<input type="text" name="bws_license_key" value="<?php echo $bws_license_key; ?>" />
+							<input type="hidden" name="bws_license_plugin" value="updater-pro/updater_pro.php" />
+							<input type="hidden" name="bws_license_submit" value="submit" />
+							<input type="submit" class="button-primary" value="<?php _e( 'Go!', 'updater' ); ?>" />
+							<?php wp_nonce_field( plugin_basename(__FILE__), 'bws_license_nonce_name' ); ?>
+						</p>
+					<?php } ?>
+				</form>
+			<?php } ?>
+		</div>
+	<?php }
+}
+/* End function pdtr_go_pro_page */
 
 /* Function for updating plugins */
 if ( ! function_exists ( 'pdtr_update_plugin' ) ) {
@@ -763,9 +950,6 @@ if ( ! function_exists ( 'pdtr_admin_head' ) ) {
 
 		if ( isset( $_GET['page'] ) && "updater-options" == $_GET['page'] )
 			wp_enqueue_script( 'pdtr_script', plugins_url( 'js/script.js' , __FILE__ ) );
-
-		if ( isset( $_GET['page'] ) && "bws_plugins" == $_GET['page'] )
-			wp_enqueue_script( 'bws_menu_script', plugins_url( 'js/bws_menu.js' , __FILE__ ) );
 	}
 }
 
@@ -822,6 +1006,7 @@ if ( ! function_exists ( 'pdtr_plugin_banner' ) ) {
 			$banner_array = array(
 				array( 'pdtr_hide_banner_on_plugin_page', 'updater/updater.php', '1.12' ),
 				array( 'cntctfrmtdb_hide_banner_on_plugin_page', 'contact-form-to-db/contact_form_to_db.php', '1.2' ),
+				array( 'gglstmp_hide_banner_on_plugin_page', 'google-sitemap-plugin/google-sitemap-plugin.php', '2.8.4' ),
 				array( 'cntctfrmpr_for_ctfrmtdb_hide_banner_on_plugin_page', 'contact-form-pro/contact_form_pro.php', '1.14' ),
 				array( 'cntctfrm_for_ctfrmtdb_hide_banner_on_plugin_page', 'contact-form-plugin/contact_form.php', '3.62' ),
 				array( 'cntctfrm_hide_banner_on_plugin_page', 'contact-form-plugin/contact_form.php', '3.47' ),	
