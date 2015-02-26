@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
 Tags: apdater, auto mode update, manual mode update, latest version, latest wordpress version, recent version, recent plugin versions, recent wordpress version, updatar, updater, updeiter, update plugins automatically, update wordpress automatically, update email notification, update frequency, update manually, update notification, update plugins, update to latest version, update to recent version, update wordpress, update wordpress core, updater plugin, plugin, core, wordpress, update
 Requires at least: 3.3
-Tested up to: 4.1
-Stable tag: 1.23
+Tested up to: 4.1.1
+Stable tag: 1.24
 License: GPLv2 or later
 
 This plugin allows you to update plugins and WordPress core.
@@ -16,14 +16,13 @@ This plugin updates your WordPress and the plugins to the recent versions. It al
 http://www.youtube.com/watch?v=I63426HTJjI
 
 <a href="http://wordpress.org/plugins/updater/faq/" target="_blank">FAQ</a>
-
 <a href="http://support.bestwebsoft.com" target="_blank">Support</a>
 
 <a href="http://bestwebsoft.com/plugin/updater-pro?k=49e226d45dc4d3465a079fa62317eab2" target="_blank" title="Updater Pro">Upgrade to Pro Version</a>
 
 = User Guide =
 
-1. After downloading and activating the plugin 'Updater', you should go to the page 'Updater' => 'Options' in the 'BWS Plugins' menu, where the plugin settings are available.
+1. After downloading and activating the plugin 'Updater', you should go to the page 'Updater' => 'Settings' in the 'BWS Plugins' menu, where the plugin settings are available.
 2. On this page you should choose the plugin mode and edit email notifications settings.
 3. If you want to update your plugins or WP core in the manual mode you should go to the page 'Updater' in the 'Tools' menu. If WordPress or some of your plugins needs update it will be highlighted in red. Check it and click 'update'.
 
@@ -47,7 +46,7 @@ We can fix some things for free for the users who provide translation of our plu
 
 1. Upload the `updater` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin via the 'Plugins' menu in WordPress.
-3. Plugin settings are located in 'BWS Plugins', 'Updater', 'options'.
+3. Plugin settings are located in 'BWS Plugins', 'Updater', 'Settings'.
 
 == Frequently Asked Questions ==
 
@@ -89,6 +88,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 2. Updater page in the BWS admin area.
 
 == Changelog ==
+
+= V1.24 - 26.02.2015 =
+* Update : Plugin settings are updated.
+* Update : We updated all functionality for wordpress 4.1.1.
 
 = V1.23 - 08.01.2015 =
 * Update : We updated all functionality for wordpress 4.1.
@@ -180,6 +183,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : Css-style was added.
 
 == Upgrade Notice ==
+
+= V1.24 =
+Plugin settings are updated. We updated all functionality for wordpress 4.1.1.
 
 = V1.23 =
 We updated all functionality for wordpress 4.1.
