@@ -48,6 +48,8 @@ We can fix some things for free for the users who provide translation of our plu
 2. Activate the plugin via the 'Plugins' menu in WordPress.
 3. Plugin settings are located in 'BWS Plugins', 'Updater', 'Settings'.
 
+<a href="https://docs.google.com/document/d/1tzCpHUUzvRsAKrW-9vOLjJkT-43cBI0bMc05YAqNzHM/edit" target="_blank">View a PDF version of Step-by-step Instruction on Updater Installation</a>.
+
 == Frequently Asked Questions ==
 
 = The plugin doesn't send any emails =
@@ -56,23 +58,15 @@ Please follow the instructions below:
 1. Please check the plugin settings '/wp-admin/admin.php?page=updater-options'
 2. The plugin sends email notifications if any updates are available. 
 3. Some email messages can be marked as spam on the server. Enter email address ('Sender's name and email address'), for example, gmail account or similar. If the message is approved (sent), this means that the email filtering is configured on your server.
-4. Are you getting any notifications about new users registration? If no, perhaps you didn't configure email sending. In this case You should install an extra plugin called WP-mail-SMTP and configure it.
+4. Perhaps you didn't configure email sending. In this case You should install SMTP by BestWebSoft plugin and configure it. Afterwards you should send a test email from this plugin and you will see if the plugin logs have errors.
 
 = The plugin stopped sending emails after some time. What's the problem? =
 
 The plugin sends email notification if any updates are available. If there are no updates available, you won't get anything.
 
-= The time of sending does not match what I have specified (or default value). =
+= Sending time does not correspond to that specified on the settings page =
 
-The function for sending emails and updating is triggered when the site is active (when someone visits your site.) If there is no activity, it will run when the first activity appears. So the time can be shifted.
-
-= How often will the plugin search for updates or/and update plugins and WordPress if I did not specify the time? =
-
-Updater does it every 12 hours by default. In auto mode Updater updates plugins or WP if any updates are available.
-
-= I want the plugin to search for updates or/and update plugins and WordPress every 0.5 hours =
-
-It's impossible. The number of hours should be integer and it should not include more than 5 digits.
+The function of sending emails and updating runs when the site is active (when someone visits your site.) If there is no activity, it will run when the first activity appears. So the time can be shifted.
 
 = I have some problems with the plugin's work. What Information should I provide to receive proper support? =
 
