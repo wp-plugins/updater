@@ -1,6 +1,6 @@
 === Updater by BestWebSoft ===
 Contributors: bestwebsoft
-Donate link: http://bestwebsoft.com/donation/
+Donate link: http://bestwebsoft.com/donate/
 Tags: apdater, auto mode update, manual mode update, latest version, latest wordpress version, recent version, recent plugin versions, recent wordpress version, updatar, updater, updeiter, update plugins automatically, update wordpress automatically, update email notification, update frequency, update manually, update notification, update plugins, update to latest version, update to recent version, update wordpress, update wordpress core, updater plugin, plugin, core, wordpress, update
 Requires at least: 3.3
 Tested up to: 4.2.2
